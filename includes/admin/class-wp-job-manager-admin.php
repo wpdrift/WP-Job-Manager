@@ -46,7 +46,7 @@ class WP_Restaurant_Listings_Admin {
 
 			wp_localize_script( 'job_manager_admin_js', 'job_manager_admin', array(
 				/* translators: jQuery date format, see http://api.jqueryui.com/datepicker/#utility-formatDate */
-				'date_format' => _x( 'yy-mm-dd', 'Date format for jQuery datepicker.', 'wp-job-manager' )
+				'date_format' => _x( 'yy-mm-dd', 'Date format for jQuery datepicker.', 'wp-restaurant-listings' )
 			) );
 		}
 
@@ -60,10 +60,10 @@ class WP_Restaurant_Listings_Admin {
 	 * @return void
 	 */
 	public function admin_menu() {
-		add_submenu_page( 'edit.php?post_type=restaurant_listing', __( 'Settings', 'wp-job-manager' ), __( 'Settings', 'wp-job-manager' ), 'manage_options', 'job-manager-settings', array( $this->settings_page, 'output' ) );
+		add_submenu_page( 'edit.php?post_type=restaurant_listing', __( 'Settings', 'wp-restaurant-listings' ), __( 'Settings', 'wp-restaurant-listings' ), 'manage_options', 'job-manager-settings', array( $this->settings_page, 'output' ) );
 
 		if ( apply_filters( 'job_manager_show_addons_page', true ) )
-			add_submenu_page(  'edit.php?post_type=restaurant_listing', __( 'WP Job Manager Add-ons', 'wp-job-manager' ),  __( 'Add-ons', 'wp-job-manager' ) , 'manage_options', 'job-manager-addons', array( $this, 'addons_page' ) );
+			add_submenu_page(  'edit.php?post_type=restaurant_listing', __( 'WP Job Manager Add-ons', 'wp-restaurant-listings' ),  __( 'Add-ons', 'wp-restaurant-listings' ) , 'manage_options', 'job-manager-addons', array( $this, 'addons_page' ) );
 	}
 
 	/**

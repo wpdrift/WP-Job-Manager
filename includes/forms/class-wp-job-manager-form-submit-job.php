@@ -55,19 +55,19 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 
 		$this->steps  = (array) apply_filters( 'submit_job_steps', array(
 			'submit' => array(
-				'name'     => __( 'Submit Details', 'wp-job-manager' ),
+				'name'     => __( 'Submit Details', 'wp-restaurant-listings' ),
 				'view'     => array( $this, 'submit' ),
 				'handler'  => array( $this, 'submit_handler' ),
 				'priority' => 10
 				),
 			'preview' => array(
-				'name'     => __( 'Preview', 'wp-job-manager' ),
+				'name'     => __( 'Preview', 'wp-restaurant-listings' ),
 				'view'     => array( $this, 'preview' ),
 				'handler'  => array( $this, 'preview_handler' ),
 				'priority' => 20
 			),
 			'done' => array(
-				'name'     => __( 'Done', 'wp-job-manager' ),
+				'name'     => __( 'Done', 'wp-restaurant-listings' ),
 				'view'     => array( $this, 'done' ),
 				'priority' => 30
 			)
@@ -134,16 +134,16 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 		$allowed_application_method = get_option( 'job_manager_allowed_application_method', '' );
 		switch ( $allowed_application_method ) {
 			case 'email' :
-				$application_method_label       = __( 'Application email', 'wp-job-manager' );
-				$application_method_placeholder = __( 'you@yourdomain.com', 'wp-job-manager' );
+				$application_method_label       = __( 'Application email', 'wp-restaurant-listings' );
+				$application_method_placeholder = __( 'you@yourdomain.com', 'wp-restaurant-listings' );
 			break;
 			case 'url' :
-				$application_method_label       = __( 'Application URL', 'wp-job-manager' );
-				$application_method_placeholder = __( 'http://', 'wp-job-manager' );
+				$application_method_label       = __( 'Application URL', 'wp-restaurant-listings' );
+				$application_method_placeholder = __( 'http://', 'wp-restaurant-listings' );
 			break;
 			default :
-				$application_method_label       = __( 'Application email/URL', 'wp-job-manager' );
-				$application_method_placeholder = __( 'Enter an email address or website URL', 'wp-job-manager' );
+				$application_method_label       = __( 'Application email/URL', 'wp-restaurant-listings' );
+				$application_method_placeholder = __( 'Enter an email address or website URL', 'wp-restaurant-listings' );
 			break;
 		}
 
@@ -155,22 +155,22 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 		$this->fields = apply_filters( 'submit_job_form_fields', array(
 			'job' => array(
 				'job_title' => array(
-					'label'       => __( 'Job Title', 'wp-job-manager' ),
+					'label'       => __( 'Job Title', 'wp-restaurant-listings' ),
 					'type'        => 'text',
 					'required'    => true,
 					'placeholder' => '',
 					'priority'    => 1
 				),
 				'job_location' => array(
-					'label'       => __( 'Location', 'wp-job-manager' ),
-					'description' => __( 'Leave this blank if the location is not important', 'wp-job-manager' ),
+					'label'       => __( 'Location', 'wp-restaurant-listings' ),
+					'description' => __( 'Leave this blank if the location is not important', 'wp-restaurant-listings' ),
 					'type'        => 'text',
 					'required'    => false,
-					'placeholder' => __( 'e.g. "London"', 'wp-job-manager' ),
+					'placeholder' => __( 'e.g. "London"', 'wp-restaurant-listings' ),
 					'priority'    => 2
 				),
 				'job_type' => array(
-					'label'       => __( 'Job type', 'wp-job-manager' ),
+					'label'       => __( 'Job type', 'wp-restaurant-listings' ),
 					'type'        => $job_type,
 					'required'    => true,
 					'placeholder' => '',
@@ -179,7 +179,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 					'taxonomy'    => 'restaurant_listing_type'
 				),
 				'job_category' => array(
-					'label'       => __( 'Job category', 'wp-job-manager' ),
+					'label'       => __( 'Job category', 'wp-restaurant-listings' ),
 					'type'        => 'term-multiselect',
 					'required'    => true,
 					'placeholder' => '',
@@ -188,7 +188,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 					'taxonomy'    => 'restaurant_listing_category'
 				),
 				'job_description' => array(
-					'label'       => __( 'Description', 'wp-job-manager' ),
+					'label'       => __( 'Description', 'wp-restaurant-listings' ),
 					'type'        => 'wp-editor',
 					'required'    => true,
 					'placeholder' => '',
@@ -204,43 +204,43 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 			),
 			'company' => array(
 				'company_name' => array(
-					'label'       => __( 'Company name', 'wp-job-manager' ),
+					'label'       => __( 'Company name', 'wp-restaurant-listings' ),
 					'type'        => 'text',
 					'required'    => true,
-					'placeholder' => __( 'Enter the name of the company', 'wp-job-manager' ),
+					'placeholder' => __( 'Enter the name of the company', 'wp-restaurant-listings' ),
 					'priority'    => 1
 				),
 				'company_website' => array(
-					'label'       => __( 'Website', 'wp-job-manager' ),
+					'label'       => __( 'Website', 'wp-restaurant-listings' ),
 					'type'        => 'text',
 					'required'    => false,
-					'placeholder' => __( 'http://', 'wp-job-manager' ),
+					'placeholder' => __( 'http://', 'wp-restaurant-listings' ),
 					'priority'    => 2
 				),
 				'company_tagline' => array(
-					'label'       => __( 'Tagline', 'wp-job-manager' ),
+					'label'       => __( 'Tagline', 'wp-restaurant-listings' ),
 					'type'        => 'text',
 					'required'    => false,
-					'placeholder' => __( 'Briefly describe your company', 'wp-job-manager' ),
+					'placeholder' => __( 'Briefly describe your company', 'wp-restaurant-listings' ),
 					'maxlength'   => 64,
 					'priority'    => 3
 				),
 				'company_video' => array(
-					'label'       => __( 'Video', 'wp-job-manager' ),
+					'label'       => __( 'Video', 'wp-restaurant-listings' ),
 					'type'        => 'text',
 					'required'    => false,
-					'placeholder' => __( 'A link to a video about your company', 'wp-job-manager' ),
+					'placeholder' => __( 'A link to a video about your company', 'wp-restaurant-listings' ),
 					'priority'    => 4
 				),
 				'company_twitter' => array(
-					'label'       => __( 'Twitter username', 'wp-job-manager' ),
+					'label'       => __( 'Twitter username', 'wp-restaurant-listings' ),
 					'type'        => 'text',
 					'required'    => false,
-					'placeholder' => __( '@yourcompany', 'wp-job-manager' ),
+					'placeholder' => __( '@yourcompany', 'wp-restaurant-listings' ),
 					'priority'    => 5
 				),
 				'company_logo' => array(
-					'label'       => __( 'Logo', 'wp-job-manager' ),
+					'label'       => __( 'Logo', 'wp-restaurant-listings' ),
 					'type'        => 'file',
 					'required'    => false,
 					'placeholder' => '',
@@ -274,7 +274,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 		foreach ( $this->fields as $group_key => $group_fields ) {
 			foreach ( $group_fields as $key => $field ) {
 				if ( $field['required'] && empty( $values[ $group_key ][ $key ] ) ) {
-					return new WP_Error( 'validation-error', sprintf( __( '%s is a required field', 'wp-job-manager' ), $field['label'] ) );
+					return new WP_Error( 'validation-error', sprintf( __( '%s is a required field', 'wp-restaurant-listings' ), $field['label'] ) );
 				}
 				if ( ! empty( $field['taxonomy'] ) && in_array( $field['type'], array( 'term-checklist', 'term-select', 'term-multiselect' ) ) ) {
 					if ( is_array( $values[ $group_key ][ $key ] ) ) {
@@ -284,7 +284,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 					}
 					foreach ( $check_value as $term ) {
 						if ( ! term_exists( $term, $field['taxonomy'] ) ) {
-							return new WP_Error( 'validation-error', sprintf( __( '%s is invalid', 'wp-job-manager' ), $field['label'] ) );
+							return new WP_Error( 'validation-error', sprintf( __( '%s is invalid', 'wp-restaurant-listings' ), $field['label'] ) );
 						}
 					}
 				}
@@ -300,7 +300,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 							$file_info = wp_check_filetype( $file_url );
 
 							if ( ! is_numeric( $file_url ) && $file_info && ! in_array( $file_info['type'], $field['allowed_mime_types'] ) ) {
-								throw new Exception( sprintf( __( '"%s" (filetype %s) needs to be one of the following file types: %s', 'wp-job-manager' ), $field['label'], $file_info['ext'], implode( ', ', array_keys( $field['allowed_mime_types'] ) ) ) );
+								throw new Exception( sprintf( __( '"%s" (filetype %s) needs to be one of the following file types: %s', 'wp-restaurant-listings' ), $field['label'], $file_info['ext'], implode( ', ', array_keys( $field['allowed_mime_types'] ) ) ) );
 							}
 						}
 					}
@@ -315,7 +315,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 			switch ( $allowed_application_method ) {
 				case 'email' :
 					if ( ! is_email( $values['job']['application'] ) ) {
-						throw new Exception( __( 'Please enter a valid application email address', 'wp-job-manager' ) );
+						throw new Exception( __( 'Please enter a valid application email address', 'wp-restaurant-listings' ) );
 					}
 				break;
 				case 'url' :
@@ -324,7 +324,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 						$values['job']['application'] = 'http://' . $values['job']['application'];
 					}
 					if ( ! filter_var( $values['job']['application'], FILTER_VALIDATE_URL ) ) {
-						throw new Exception( __( 'Please enter a valid application URL', 'wp-job-manager' ) );
+						throw new Exception( __( 'Please enter a valid application URL', 'wp-restaurant-listings' ) );
 					}
 				break;
 				default :
@@ -334,7 +334,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 							$values['job']['application'] = 'http://' . $values['job']['application'];
 						}
 						if ( ! filter_var( $values['job']['application'], FILTER_VALIDATE_URL ) ) {
-							throw new Exception( __( 'Please enter a valid application email address or URL', 'wp-job-manager' ) );
+							throw new Exception( __( 'Please enter a valid application email address or URL', 'wp-restaurant-listings' ) );
 						}
 					}
 				break;
@@ -419,7 +419,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 			'job_fields'         => $this->get_fields( 'job' ),
 			'company_fields'     => $this->get_fields( 'company' ),
 			'step'               => $this->get_step(),
-			'submit_button_text' => apply_filters( 'submit_job_form_submit_button_text', __( 'Preview', 'wp-job-manager' ) )
+			'submit_button_text' => apply_filters( 'submit_job_form_submit_button_text', __( 'Preview', 'wp-restaurant-listings' ) )
 		) );
 	}
 
@@ -450,10 +450,10 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 				if ( job_manager_enable_registration() ) {
 					if ( job_manager_user_requires_account() ) {
 						if ( ! job_manager_generate_username_from_email() && empty( $_POST['create_account_username'] ) ) {
-							throw new Exception( __( 'Please enter a username.', 'wp-job-manager' ) );
+							throw new Exception( __( 'Please enter a username.', 'wp-restaurant-listings' ) );
 						}
 						if ( empty( $_POST['create_account_email'] ) ) {
-							throw new Exception( __( 'Please enter your email address.', 'wp-job-manager' ) );
+							throw new Exception( __( 'Please enter your email address.', 'wp-restaurant-listings' ) );
 						}
 					}
 					if ( ! empty( $_POST['create_account_email'] ) ) {
@@ -471,7 +471,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 			}
 
 			if ( job_manager_user_requires_account() && ! is_user_logged_in() ) {
-				throw new Exception( __( 'You must be signed in to post a new listing.', 'wp-job-manager' ) );
+				throw new Exception( __( 'You must be signed in to post a new listing.', 'wp-restaurant-listings' ) );
 			}
 
 			// Update the job

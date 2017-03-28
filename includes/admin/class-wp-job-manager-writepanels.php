@@ -28,70 +28,70 @@ class WP_Restaurant_Listings_Writepanels {
 
 		$fields = array(
 			'_job_location' => array(
-				'label' => __( 'Location', 'wp-job-manager' ),
-				'placeholder' => __( 'e.g. "London"', 'wp-job-manager' ),
-				'description' => __( 'Leave this blank if the location is not important.', 'wp-job-manager' ),
+				'label' => __( 'Location', 'wp-restaurant-listings' ),
+				'placeholder' => __( 'e.g. "London"', 'wp-restaurant-listings' ),
+				'description' => __( 'Leave this blank if the location is not important.', 'wp-restaurant-listings' ),
 				'priority'    => 1
 			),
 			'_application' => array(
-				'label'       => __( 'Application Email or URL', 'wp-job-manager' ),
-				'placeholder' => __( 'URL or email which applicants use to apply', 'wp-job-manager' ),
-				'description' => __( 'This field is required for the "application" area to appear beneath the listing.', 'wp-job-manager' ),
+				'label'       => __( 'Application Email or URL', 'wp-restaurant-listings' ),
+				'placeholder' => __( 'URL or email which applicants use to apply', 'wp-restaurant-listings' ),
+				'description' => __( 'This field is required for the "application" area to appear beneath the listing.', 'wp-restaurant-listings' ),
 				'value'       => metadata_exists( 'post', $post->ID, '_application' ) ? get_post_meta( $post->ID, '_application', true ) : $current_user->user_email,
 				'priority'    => 2
 			),
 			'_company_name' => array(
-				'label'       => __( 'Company Name', 'wp-job-manager' ),
+				'label'       => __( 'Company Name', 'wp-restaurant-listings' ),
 				'placeholder' => '',
 				'priority'    => 3
 			),
 			'_company_website' => array(
-				'label'       => __( 'Company Website', 'wp-job-manager' ),
+				'label'       => __( 'Company Website', 'wp-restaurant-listings' ),
 				'placeholder' => '',
 				'priority'    => 4
 			),
 			'_company_tagline' => array(
-				'label'       => __( 'Company Tagline', 'wp-job-manager' ),
-				'placeholder' => __( 'Brief description about the company', 'wp-job-manager' ),
+				'label'       => __( 'Company Tagline', 'wp-restaurant-listings' ),
+				'placeholder' => __( 'Brief description about the company', 'wp-restaurant-listings' ),
 				'priority'    => 5
 			),
 			'_company_twitter' => array(
-				'label'       => __( 'Company Twitter', 'wp-job-manager' ),
+				'label'       => __( 'Company Twitter', 'wp-restaurant-listings' ),
 				'placeholder' => '@yourcompany',
 				'priority'    => 6
 			),
 			'_company_video' => array(
-				'label'       => __( 'Company Video', 'wp-job-manager' ),
-				'placeholder' => __( 'URL to the company video', 'wp-job-manager' ),
+				'label'       => __( 'Company Video', 'wp-restaurant-listings' ),
+				'placeholder' => __( 'URL to the company video', 'wp-restaurant-listings' ),
 				'type'        => 'file',
 				'priority'    => 8
 			),
 			'_filled' => array(
-				'label'       => __( 'Position Filled', 'wp-job-manager' ),
+				'label'       => __( 'Position Filled', 'wp-restaurant-listings' ),
 				'type'        => 'checkbox',
 				'priority'    => 9,
-				'description' => __( 'Filled listings will no longer accept applications.', 'wp-job-manager' ),
+				'description' => __( 'Filled listings will no longer accept applications.', 'wp-restaurant-listings' ),
 			)
 		);
 		if ( $current_user->has_cap( 'manage_restaurant_listings' ) ) {
 			$fields['_featured'] = array(
-				'label'       => __( 'Featured Listing', 'wp-job-manager' ),
+				'label'       => __( 'Featured Listing', 'wp-restaurant-listings' ),
 				'type'        => 'checkbox',
-				'description' => __( 'Featured listings will be sticky during searches, and can be styled differently.', 'wp-job-manager' ),
+				'description' => __( 'Featured listings will be sticky during searches, and can be styled differently.', 'wp-restaurant-listings' ),
 				'priority'    => 10
 			);
 			$fields['_job_expires'] = array(
-				'label'       => __( 'Listing Expiry Date', 'wp-job-manager' ),
+				'label'       => __( 'Listing Expiry Date', 'wp-restaurant-listings' ),
 				'priority'    => 11,
 				'classes'     => array( 'job-manager-datepicker' ),
 				/* translators: date format placeholder, see https://secure.php.net/date */
-				'placeholder' => _x( 'yyyy-mm-dd', 'Date format placeholder.', 'wp-job-manager' ),
+				'placeholder' => _x( 'yyyy-mm-dd', 'Date format placeholder.', 'wp-restaurant-listings' ),
 				'value'       => metadata_exists( 'post', $post->ID, '_job_expires' ) ? get_post_meta( $post->ID, '_job_expires', true ) : calculate_job_expiry( $post->ID ),
 			);
 		}
 		if ( $current_user->has_cap( 'edit_others_restaurant_listings' ) ) {
 			$fields['_job_author'] = array(
-				'label'    => __( 'Posted by', 'wp-job-manager' ),
+				'label'    => __( 'Posted by', 'wp-restaurant-listings' ),
 				'type'     => 'author',
 				'priority' => 12
 			);
@@ -123,7 +123,7 @@ class WP_Restaurant_Listings_Writepanels {
 	public function add_meta_boxes() {
 		global $wp_post_types;
 
-		add_meta_box( 'restaurant_listing_data', sprintf( __( '%s Data', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->singular_name ), array( $this, 'restaurant_listing_data' ), 'restaurant_listing', 'normal', 'high' );
+		add_meta_box( 'restaurant_listing_data', sprintf( __( '%s Data', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->singular_name ), array( $this, 'restaurant_listing_data' ), 'restaurant_listing', 'normal', 'high' );
 		if ( ! get_option( 'job_manager_enable_types' ) || wp_count_terms( 'restaurant_listing_type' ) == 0 ) {
 			remove_meta_box( 'restaurant_listing_typediv', 'restaurant_listing', 'side');
 		} elseif ( false == job_manager_multi_job_type() ) {
@@ -215,13 +215,13 @@ class WP_Restaurant_Listings_Writepanels {
 			<?php
 			if ( ! empty( $field['multiple'] ) ) {
 				foreach ( (array) $field['value'] as $value ) {
-					?><span class="file_url"><input type="text" name="<?php echo esc_attr( $name ); ?>[]" placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>" value="<?php echo esc_attr( $value ); ?>" /><button class="button button-small wp_job_manager_upload_file_button" data-uploader_button_text="<?php _e( 'Use file', 'wp-job-manager' ); ?>"><?php _e( 'Upload', 'wp-job-manager' ); ?></button><button class="button button-small wp_job_manager_view_file_button"><?php _e( 'View', 'wp-job-manager' ); ?></button></span><?php
+					?><span class="file_url"><input type="text" name="<?php echo esc_attr( $name ); ?>[]" placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>" value="<?php echo esc_attr( $value ); ?>" /><button class="button button-small wp_job_manager_upload_file_button" data-uploader_button_text="<?php _e( 'Use file', 'wp-restaurant-listings' ); ?>"><?php _e( 'Upload', 'wp-restaurant-listings' ); ?></button><button class="button button-small wp_job_manager_view_file_button"><?php _e( 'View', 'wp-restaurant-listings' ); ?></button></span><?php
 				}
 			} else {
-				?><span class="file_url"><input type="text" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $key ); ?>" placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>" value="<?php echo esc_attr( $field['value'] ); ?>" /><button class="button button-small wp_job_manager_upload_file_button" data-uploader_button_text="<?php _e( 'Use file', 'wp-job-manager' ); ?>"><?php _e( 'Upload', 'wp-job-manager' ); ?></button><button class="button button-small wp_job_manager_view_file_button"><?php _e( 'View', 'wp-job-manager' ); ?></button></span><?php
+				?><span class="file_url"><input type="text" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $key ); ?>" placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>" value="<?php echo esc_attr( $field['value'] ); ?>" /><button class="button button-small wp_job_manager_upload_file_button" data-uploader_button_text="<?php _e( 'Use file', 'wp-restaurant-listings' ); ?>"><?php _e( 'Upload', 'wp-restaurant-listings' ); ?></button><button class="button button-small wp_job_manager_view_file_button"><?php _e( 'View', 'wp-restaurant-listings' ); ?></button></span><?php
 			}
 			if ( ! empty( $field['multiple'] ) ) {
-				?><button class="button button-small wp_job_manager_add_another_file_button" data-field_name="<?php echo esc_attr( $key ); ?>" data-field_placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>" data-uploader_button_text="<?php _e( 'Use file', 'wp-job-manager' ); ?>" data-uploader_button="<?php _e( 'Upload', 'wp-job-manager' ); ?>" data-view_button="<?php _e( 'View', 'wp-job-manager' ); ?>"><?php _e( 'Add file', 'wp-job-manager' ); ?></button><?php
+				?><button class="button button-small wp_job_manager_add_another_file_button" data-field_name="<?php echo esc_attr( $key ); ?>" data-field_placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>" data-uploader_button_text="<?php _e( 'Use file', 'wp-restaurant-listings' ); ?>" data-uploader_button="<?php _e( 'Upload', 'wp-restaurant-listings' ); ?>" data-view_button="<?php _e( 'View', 'wp-restaurant-listings' ); ?>"><?php _e( 'Add file', 'wp-restaurant-listings' ); ?></button><?php
 			}
 			?>
 		</p>
@@ -394,13 +394,13 @@ class WP_Restaurant_Listings_Writepanels {
 					if ( $posted_by ) {
 						echo '<a href="' . admin_url( 'user-edit.php?user_id=' . absint( $author_id ) ) . '">#' . absint( $author_id ) . ' &ndash; ' . $posted_by->user_login . '</a>';
 					} else {
-						 _e( 'Guest User', 'wp-job-manager' );
+						 _e( 'Guest User', 'wp-restaurant-listings' );
 					}
-				?> <a href="#" class="change-author button button-small"><?php _e( 'Change', 'wp-job-manager' ); ?></a>
+				?> <a href="#" class="change-author button button-small"><?php _e( 'Change', 'wp-restaurant-listings' ); ?></a>
 			</span>
 			<span class="hidden change-author">
 				<input type="number" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $key ); ?>" step="1" value="<?php echo esc_attr( $author_id ); ?>" style="width: 4em;" />
-				<span class="description"><?php _e( 'Enter the ID of the user, or leave blank if submitted by a guest.', 'wp-job-manager' ) ?></span>
+				<span class="description"><?php _e( 'Enter the ID of the user, or leave blank if submitted by a guest.', 'wp-restaurant-listings' ) ?></span>
 			</span>
 		</p>
 		<?php

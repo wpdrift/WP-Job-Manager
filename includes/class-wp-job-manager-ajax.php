@@ -178,7 +178,7 @@ class WP_Restaurant_Listings_Ajax {
 		$result['showing'][] = $post_type_label;
 
 		if ( $search_location ) {
-			$result['showing'][] = sprintf( __( 'located in &ldquo;%s&rdquo;', 'wp-job-manager' ), $search_location );
+			$result['showing'][] = sprintf( __( 'located in &ldquo;%s&rdquo;', 'wp-restaurant-listings' ), $search_location );
 		}
 
 		if ( 1 === sizeof( $result['showing'] ) ) {
@@ -186,7 +186,7 @@ class WP_Restaurant_Listings_Ajax {
 		}
 
 		if ( $jobs->post_count && ( $search_location || $search_keywords || $search_categories ) ) {
-			$message = sprintf( _n( 'Search completed. Found %d matching record.', 'Search completed. Found %d matching records.', $jobs->post_count, 'wp-job-manager' ), $jobs->post_count );
+			$message = sprintf( _n( 'Search completed. Found %d matching record.', 'Search completed. Found %d matching records.', $jobs->post_count, 'wp-restaurant-listings' ), $jobs->post_count );
 			$result['showing_all'] = true;
 		} else {
 			$message = "";

@@ -192,24 +192,24 @@ class WP_Restaurant_Listings_Widget_Recent_Restaurants extends WP_Restaurant_Lis
 		global $wp_post_types;
 
 		$this->widget_cssclass    = 'job_manager widget_recent_jobs';
-		$this->widget_description = __( 'Display a list of recent listings on your site, optionally matching a keyword and location.', 'wp-job-manager' );
+		$this->widget_description = __( 'Display a list of recent listings on your site, optionally matching a keyword and location.', 'wp-restaurant-listings' );
 		$this->widget_id          = 'widget_recent_jobs';
-		$this->widget_name        = sprintf( __( 'Recent %s', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->name );
+		$this->widget_name        = sprintf( __( 'Recent %s', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->name );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
-				'std'   => sprintf( __( 'Recent %s', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->name ),
-				'label' => __( 'Title', 'wp-job-manager' )
+				'std'   => sprintf( __( 'Recent %s', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->name ),
+				'label' => __( 'Title', 'wp-restaurant-listings' )
 			),
 			'keyword' => array(
 				'type'  => 'text',
 				'std'   => '',
-				'label' => __( 'Keyword', 'wp-job-manager' )
+				'label' => __( 'Keyword', 'wp-restaurant-listings' )
 			),
 			'location' => array(
 				'type'  => 'text',
 				'std'   => '',
-				'label' => __( 'Location', 'wp-job-manager' )
+				'label' => __( 'Location', 'wp-restaurant-listings' )
 			),
 			'number' => array(
 				'type'  => 'number',
@@ -217,7 +217,7 @@ class WP_Restaurant_Listings_Widget_Recent_Restaurants extends WP_Restaurant_Lis
 				'min'   => 1,
 				'max'   => '',
 				'std'   => 10,
-				'label' => __( 'Number of listings to show', 'wp-job-manager' )
+				'label' => __( 'Number of listings to show', 'wp-restaurant-listings' )
 			)
 		);
 		$this->register();
@@ -297,14 +297,14 @@ class WP_Restaurant_Listings_Widget_Featured_Restaurants extends WP_Restaurant_L
 		global $wp_post_types;
 
 		$this->widget_cssclass    = 'job_manager widget_featured_jobs';
-		$this->widget_description = __( 'Display a list of featured listings on your site.', 'wp-job-manager' );
+		$this->widget_description = __( 'Display a list of featured listings on your site.', 'wp-restaurant-listings' );
 		$this->widget_id          = 'widget_featured_jobs';
-		$this->widget_name        = sprintf( __( 'Featured %s', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->name );
+		$this->widget_name        = sprintf( __( 'Featured %s', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->name );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
-				'std'   => sprintf( __( 'Featured %s', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->name ),
-				'label' => __( 'Title', 'wp-job-manager' )
+				'std'   => sprintf( __( 'Featured %s', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->name ),
+				'label' => __( 'Title', 'wp-restaurant-listings' )
 			),
 			'number' => array(
 				'type'  => 'number',
@@ -312,7 +312,7 @@ class WP_Restaurant_Listings_Widget_Featured_Restaurants extends WP_Restaurant_L
 				'min'   => 1,
 				'max'   => '',
 				'std'   => 10,
-				'label' => __( 'Number of listings to show', 'wp-job-manager' )
+				'label' => __( 'Number of listings to show', 'wp-restaurant-listings' )
 			)
 		);
 		$this->register();

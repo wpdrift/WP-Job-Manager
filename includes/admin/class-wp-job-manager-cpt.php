@@ -47,11 +47,11 @@ class WP_Restaurant_Listings_CPT {
 			?>
 			<script type="text/javascript">
 		      jQuery(document).ready(function() {
-		        jQuery('<option>').val('approve_jobs').text('<?php printf( __( 'Approve %s', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->name ); ?>').appendTo("select[name='action']");
-		        jQuery('<option>').val('approve_jobs').text('<?php printf( __( 'Approve %s', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->name ); ?>').appendTo("select[name='action2']");
+		        jQuery('<option>').val('approve_jobs').text('<?php printf( __( 'Approve %s', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->name ); ?>').appendTo("select[name='action']");
+		        jQuery('<option>').val('approve_jobs').text('<?php printf( __( 'Approve %s', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->name ); ?>').appendTo("select[name='action2']");
 
-		        jQuery('<option>').val('expire_jobs').text('<?php printf( __( 'Expire %s', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->name ); ?>').appendTo("select[name='action']");
-		        jQuery('<option>').val('expire_jobs').text('<?php printf( __( 'Expire %s', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->name ); ?>').appendTo("select[name='action2']");
+		        jQuery('<option>').val('expire_jobs').text('<?php printf( __( 'Expire %s', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->name ); ?>').appendTo("select[name='action']");
+		        jQuery('<option>').val('expire_jobs').text('<?php printf( __( 'Expire %s', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->name ); ?>').appendTo("select[name='action2']");
 		      });
 		    </script>
 		    <?php
@@ -139,9 +139,9 @@ class WP_Restaurant_Listings_CPT {
 				$titles        = array();
 				foreach ( $approved_jobs as $job_id )
 					$titles[] = get_the_title( $job_id );
-				echo '<div class="updated"><p>' . sprintf( __( '%s approved', 'wp-job-manager' ), '&quot;' . implode( '&quot;, &quot;', $titles ) . '&quot;' ) . '</p></div>';
+				echo '<div class="updated"><p>' . sprintf( __( '%s approved', 'wp-restaurant-listings' ), '&quot;' . implode( '&quot;, &quot;', $titles ) . '&quot;' ) . '</p></div>';
 			} else {
-				echo '<div class="updated"><p>' . sprintf( __( '%s approved', 'wp-job-manager' ), '&quot;' . get_the_title( $approved_jobs ) . '&quot;' ) . '</p></div>';
+				echo '<div class="updated"><p>' . sprintf( __( '%s approved', 'wp-restaurant-listings' ), '&quot;' . get_the_title( $approved_jobs ) . '&quot;' ) . '</p></div>';
 			}
 		}
 	}
@@ -159,9 +159,9 @@ class WP_Restaurant_Listings_CPT {
 				$titles        = array();
 				foreach ( $expired_jobs as $job_id )
 					$titles[] = get_the_title( $job_id );
-				echo '<div class="updated"><p>' . sprintf( __( '%s expired', 'wp-job-manager' ), '&quot;' . implode( '&quot;, &quot;', $titles ) . '&quot;' ) . '</p></div>';
+				echo '<div class="updated"><p>' . sprintf( __( '%s expired', 'wp-restaurant-listings' ), '&quot;' . implode( '&quot;, &quot;', $titles ) . '&quot;' ) . '</p></div>';
 			} else {
-				echo '<div class="updated"><p>' . sprintf( __( '%s expired', 'wp-job-manager' ), '&quot;' . get_the_title( $expired_jobs ) . '&quot;' ) . '</p></div>';
+				echo '<div class="updated"><p>' . sprintf( __( '%s expired', 'wp-restaurant-listings' ), '&quot;' . get_the_title( $expired_jobs ) . '&quot;' ) . '</p></div>';
 			}
 		}
 	}
@@ -193,7 +193,7 @@ class WP_Restaurant_Listings_CPT {
 		}
 
 		$output  = "<select name='restaurant_listing_category' id='dropdown_restaurant_listing_category'>";
-		$output .= '<option value="" ' . selected( isset( $_GET['restaurant_listing_category'] ) ? $_GET['restaurant_listing_category'] : '', '', false ) . '>' . __( 'Select category', 'wp-job-manager' ) . '</option>';
+		$output .= '<option value="" ' . selected( isset( $_GET['restaurant_listing_category'] ) ? $_GET['restaurant_listing_category'] : '', '', false ) . '>' . __( 'Select category', 'wp-restaurant-listings' ) . '</option>';
 		$output .= $walker->walk( $terms, 0, $r );
 		$output .= "</select>";
 
@@ -208,7 +208,7 @@ class WP_Restaurant_Listings_CPT {
 	 */
 	public function enter_title_here( $text, $post ) {
 		if ( $post->post_type == 'restaurant_listing' )
-			return __( 'Position', 'wp-job-manager' );
+			return __( 'Position', 'wp-restaurant-listings' );
 		return $text;
 	}
 
@@ -224,17 +224,17 @@ class WP_Restaurant_Listings_CPT {
 
 		$messages['restaurant_listing'] = array(
 			0 => '',
-			1 => sprintf( __( '%s updated. <a href="%s">View</a>', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
-			2 => __( 'Custom field updated.', 'wp-job-manager' ),
-			3 => __( 'Custom field deleted.', 'wp-job-manager' ),
-			4 => sprintf( __( '%s updated.', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->singular_name ),
-			5 => isset( $_GET['revision'] ) ? sprintf( __( '%s restored to revision from %s', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-			6 => sprintf( __( '%s published. <a href="%s">View</a>', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
-			7 => sprintf( __( '%s saved.', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->singular_name ),
-			8 => sprintf( __( '%s submitted. <a target="_blank" href="%s">Preview</a>', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
-			9 => sprintf( __( '%s scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview</a>', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->singular_name,
-			  date_i18n( __( 'M j, Y @ G:i', 'wp-job-manager' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
-			10 => sprintf( __( '%s draft updated. <a target="_blank" href="%s">Preview</a>', 'wp-job-manager' ), $wp_post_types['restaurant_listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+			1 => sprintf( __( '%s updated. <a href="%s">View</a>', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
+			2 => __( 'Custom field updated.', 'wp-restaurant-listings' ),
+			3 => __( 'Custom field deleted.', 'wp-restaurant-listings' ),
+			4 => sprintf( __( '%s updated.', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->singular_name ),
+			5 => isset( $_GET['revision'] ) ? sprintf( __( '%s restored to revision from %s', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->singular_name, wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => sprintf( __( '%s published. <a href="%s">View</a>', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->singular_name, esc_url( get_permalink( $post_ID ) ) ),
+			7 => sprintf( __( '%s saved.', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->singular_name ),
+			8 => sprintf( __( '%s submitted. <a target="_blank" href="%s">Preview</a>', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+			9 => sprintf( __( '%s scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview</a>', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->singular_name,
+			  date_i18n( __( 'M j, Y @ G:i', 'wp-restaurant-listings' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
+			10 => sprintf( __( '%s draft updated. <a target="_blank" href="%s">Preview</a>', 'wp-restaurant-listings' ), $wp_post_types['restaurant_listing']->labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
 		);
 
 		return $messages;
@@ -253,16 +253,16 @@ class WP_Restaurant_Listings_CPT {
 
 		unset( $columns['title'], $columns['date'], $columns['author'] );
 
-		$columns["restaurant_listing_type"]     = __( "Type", 'wp-job-manager' );
-		$columns["job_position"]         = __( "Position", 'wp-job-manager' );
-		$columns["job_location"]         = __( "Location", 'wp-job-manager' );
-		$columns['job_status']           = '<span class="tips" data-tip="' . __( "Status", 'wp-job-manager' ) . '">' . __( "Status", 'wp-job-manager' ) . '</span>';
-		$columns["job_posted"]           = __( "Posted", 'wp-job-manager' );
-		$columns["job_expires"]          = __( "Expires", 'wp-job-manager' );
-		$columns["restaurant_listing_category"] = __( "Categories", 'wp-job-manager' );
-		$columns['featured_job']         = '<span class="tips" data-tip="' . __( "Featured?", 'wp-job-manager' ) . '">' . __( "Featured?", 'wp-job-manager' ) . '</span>';
-		$columns['filled']               = '<span class="tips" data-tip="' . __( "Filled?", 'wp-job-manager' ) . '">' . __( "Filled?", 'wp-job-manager' ) . '</span>';
-		$columns['job_actions']          = __( "Actions", 'wp-job-manager' );
+		$columns["restaurant_listing_type"]     = __( "Type", 'wp-restaurant-listings' );
+		$columns["job_position"]         = __( "Position", 'wp-restaurant-listings' );
+		$columns["job_location"]         = __( "Location", 'wp-restaurant-listings' );
+		$columns['job_status']           = '<span class="tips" data-tip="' . __( "Status", 'wp-restaurant-listings' ) . '">' . __( "Status", 'wp-restaurant-listings' ) . '</span>';
+		$columns["job_posted"]           = __( "Posted", 'wp-restaurant-listings' );
+		$columns["job_expires"]          = __( "Expires", 'wp-restaurant-listings' );
+		$columns["restaurant_listing_category"] = __( "Categories", 'wp-restaurant-listings' );
+		$columns['featured_job']         = '<span class="tips" data-tip="' . __( "Featured?", 'wp-restaurant-listings' ) . '">' . __( "Featured?", 'wp-restaurant-listings' ) . '</span>';
+		$columns['filled']               = '<span class="tips" data-tip="' . __( "Filled?", 'wp-restaurant-listings' ) . '">' . __( "Filled?", 'wp-restaurant-listings' ) . '</span>';
+		$columns['job_actions']          = __( "Actions", 'wp-restaurant-listings' );
 
 		if ( ! get_option( 'job_manager_enable_categories' ) ) {
 			unset( $columns["restaurant_listing_category"] );
@@ -293,7 +293,7 @@ class WP_Restaurant_Listings_CPT {
 			break;
 			case "job_position" :
 				echo '<div class="job_position">';
-				echo '<a href="' . admin_url('post.php?post=' . $post->ID . '&action=edit') . '" class="tips job_title" data-tip="' . sprintf( __( 'ID: %d', 'wp-job-manager' ), $post->ID ) . '">' . $post->post_title . '</a>';
+				echo '<a href="' . admin_url('post.php?post=' . $post->ID . '&action=edit') . '" class="tips job_title" data-tip="' . sprintf( __( 'ID: %d', 'wp-restaurant-listings' ), $post->ID ) . '">' . $post->post_title . '</a>';
 
 				echo '<div class="company">';
 
@@ -321,12 +321,12 @@ class WP_Restaurant_Listings_CPT {
 				if ( is_position_featured( $post ) ) echo '&#10004;'; else echo '&ndash;';
 			break;
 			case "job_posted" :
-				echo '<strong>' . date_i18n( __( 'M j, Y', 'wp-job-manager' ), strtotime( $post->post_date ) ) . '</strong><span>';
-				echo ( empty( $post->post_author ) ? __( 'by a guest', 'wp-job-manager' ) : sprintf( __( 'by %s', 'wp-job-manager' ), '<a href="' . esc_url( add_query_arg( 'author', $post->post_author ) ) . '">' . get_the_author() . '</a>' ) ) . '</span>';
+				echo '<strong>' . date_i18n( __( 'M j, Y', 'wp-restaurant-listings' ), strtotime( $post->post_date ) ) . '</strong><span>';
+				echo ( empty( $post->post_author ) ? __( 'by a guest', 'wp-restaurant-listings' ) : sprintf( __( 'by %s', 'wp-restaurant-listings' ), '<a href="' . esc_url( add_query_arg( 'author', $post->post_author ) ) . '">' . get_the_author() . '</a>' ) ) . '</span>';
 			break;
 			case "job_expires" :
 				if ( $post->_job_expires )
-					echo '<strong>' . date_i18n( __( 'M j, Y', 'wp-job-manager' ), strtotime( $post->_job_expires ) ) . '</strong>';
+					echo '<strong>' . date_i18n( __( 'M j, Y', 'wp-restaurant-listings' ), strtotime( $post->_job_expires ) ) . '</strong>';
 				else
 					echo '&ndash;';
 			break;
@@ -340,7 +340,7 @@ class WP_Restaurant_Listings_CPT {
 				if ( in_array( $post->post_status, array( 'pending', 'pending_payment' ) ) && current_user_can ( 'publish_post', $post->ID ) ) {
 					$admin_actions['approve']   = array(
 						'action'  => 'approve',
-						'name'    => __( 'Approve', 'wp-job-manager' ),
+						'name'    => __( 'Approve', 'wp-restaurant-listings' ),
 						'url'     =>  wp_nonce_url( add_query_arg( 'approve_job', $post->ID ), 'approve_job' )
 					);
 				}
@@ -348,21 +348,21 @@ class WP_Restaurant_Listings_CPT {
 					if ( current_user_can( 'read_post', $post->ID ) ) {
 						$admin_actions['view']   = array(
 							'action'  => 'view',
-							'name'    => __( 'View', 'wp-job-manager' ),
+							'name'    => __( 'View', 'wp-restaurant-listings' ),
 							'url'     => get_permalink( $post->ID )
 						);
 					}
 					if ( current_user_can( 'edit_post', $post->ID ) ) {
 						$admin_actions['edit']   = array(
 							'action'  => 'edit',
-							'name'    => __( 'Edit', 'wp-job-manager' ),
+							'name'    => __( 'Edit', 'wp-restaurant-listings' ),
 							'url'     => get_edit_post_link( $post->ID )
 						);
 					}
 					if ( current_user_can( 'delete_post', $post->ID ) ) {
 						$admin_actions['delete'] = array(
 							'action'  => 'delete',
-							'name'    => __( 'Delete', 'wp-job-manager' ),
+							'name'    => __( 'Delete', 'wp-restaurant-listings' ),
 							'url'     => get_delete_post_link( $post->ID )
 						);
 					}

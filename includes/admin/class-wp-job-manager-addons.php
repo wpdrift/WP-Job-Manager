@@ -54,9 +54,9 @@ class WP_Restaurant_Listings_Addons {
 
 		?>
 		<div class="wrap wp_job_manager wp_job_manager_addons_wrap">
-			<h2><?php _e( 'WP Job Manager Add-ons', 'wp-job-manager' ); ?></h2>
+			<h2><?php _e( 'WP Job Manager Add-ons', 'wp-restaurant-listings' ); ?></h2>
 
-			<div id="job-manager-addons-banner" class="notice updated below-h2"><strong><?php _e( 'Do you need multiple add-ons?', 'wp-job-manager' ); ?></strong> <a href="https://wpjobmanager.com/add-ons/bundle/" class="button"><?php _e( 'Check out the core add-on bundle &rarr;', 'wp-job-manager' ); ?></a></div>
+			<div id="job-manager-addons-banner" class="notice updated below-h2"><strong><?php _e( 'Do you need multiple add-ons?', 'wp-restaurant-listings' ); ?></strong> <a href="https://wpjobmanager.com/add-ons/bundle/" class="button"><?php _e( 'Check out the core add-on bundle &rarr;', 'wp-restaurant-listings' ); ?></a></div>
 
 			<?php echo $addons; ?>
 		</div>

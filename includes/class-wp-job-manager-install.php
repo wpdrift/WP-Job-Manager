@@ -55,7 +55,7 @@ class WP_Restaurant_Listings_Install {
 		}
 
 		if ( is_object( $wp_roles ) ) {
-			add_role( 'employer', __( 'Employer', 'wp-job-manager' ), array(
+			add_role( 'employer', __( 'Employer', 'wp-restaurant-listings' ), array(
 				'read'         => true,
 				'edit_posts'   => false,
 				'delete_posts' => false

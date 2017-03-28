@@ -22,9 +22,9 @@ do_action( 'single_restaurant_listing_meta_before' ); ?>
 	<li class="date-posted" itemprop="datePosted"><?php the_job_publish_date(); ?></li>
 
 	<?php if ( is_position_filled() ) : ?>
-		<li class="position-filled"><?php _e( 'This position has been filled', 'wp-job-manager' ); ?></li>
+		<li class="position-filled"><?php _e( 'This position has been filled', 'wp-restaurant-listings' ); ?></li>
 	<?php elseif ( ! candidates_can_apply() && 'preview' !== $post->post_status ) : ?>
-		<li class="listing-expired"><?php _e( 'Applications have closed', 'wp-job-manager' ); ?></li>
+		<li class="listing-expired"><?php _e( 'Applications have closed', 'wp-restaurant-listings' ); ?></li>
 	<?php endif; ?>
 
 	<?php do_action( 'single_restaurant_listing_meta_end' ); ?>

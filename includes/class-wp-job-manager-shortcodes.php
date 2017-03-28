@@ -65,44 +65,44 @@ class WP_Restaurant_Listings_Shortcodes {
 
 				// Check ownership
 				if ( ! job_manager_user_can_edit_job( $job_id ) ) {
-					throw new Exception( __( 'Invalid ID', 'wp-job-manager' ) );
+					throw new Exception( __( 'Invalid ID', 'wp-restaurant-listings' ) );
 				}
 
 				switch ( $action ) {
 					case 'mark_filled' :
 						// Check status
 						if ( $job->_filled == 1 )
-							throw new Exception( __( 'This position has already been filled', 'wp-job-manager' ) );
+							throw new Exception( __( 'This position has already been filled', 'wp-restaurant-listings' ) );
 
 						// Update
 						update_post_meta( $job_id, '_filled', 1 );
 
 						// Message
-						$this->job_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s has been filled', 'wp-job-manager' ), $job->post_title ) . '</div>';
+						$this->job_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s has been filled', 'wp-restaurant-listings' ), $job->post_title ) . '</div>';
 						break;
 					case 'mark_not_filled' :
 						// Check status
 						if ( $job->_filled != 1 ) {
-							throw new Exception( __( 'This position is not filled', 'wp-job-manager' ) );
+							throw new Exception( __( 'This position is not filled', 'wp-restaurant-listings' ) );
 						}
 
 						// Update
 						update_post_meta( $job_id, '_filled', 0 );
 
 						// Message
-						$this->job_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s has been marked as not filled', 'wp-job-manager' ), $job->post_title ) . '</div>';
+						$this->job_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s has been marked as not filled', 'wp-restaurant-listings' ), $job->post_title ) . '</div>';
 						break;
 					case 'delete' :
 						// Trash it
 						wp_trash_post( $job_id );
 
 						// Message
-						$this->job_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s has been deleted', 'wp-job-manager' ), $job->post_title ) . '</div>';
+						$this->job_dashboard_message = '<div class="job-manager-message">' . sprintf( __( '%s has been deleted', 'wp-restaurant-listings' ), $job->post_title ) . '</div>';
 
 						break;
 					case 'duplicate' :
 						if ( ! job_manager_get_permalink( 'submit_job_form' ) ) {
-							throw new Exception( __( 'Missing submission page.', 'wp-job-manager' ) );
+							throw new Exception( __( 'Missing submission page.', 'wp-restaurant-listings' ) );
 						}
 
 						$new_job_id = job_manager_duplicate_listing( $job_id );
@@ -115,7 +115,7 @@ class WP_Restaurant_Listings_Shortcodes {
 						break;
 					case 'relist' :
 						if ( ! job_manager_get_permalink( 'submit_job_form' ) ) {
-							throw new Exception( __( 'Missing submission page.', 'wp-job-manager' ) );
+							throw new Exception( __( 'Missing submission page.', 'wp-restaurant-listings' ) );
 						}
 
 						// redirect to post page
@@ -183,10 +183,10 @@ class WP_Restaurant_Listings_Shortcodes {
 		echo $this->job_dashboard_message;
 
 		$job_dashboard_columns = apply_filters( 'job_manager_job_dashboard_columns', array(
-			'job_title' => __( 'Title', 'wp-job-manager' ),
-			'filled'    => __( 'Filled?', 'wp-job-manager' ),
-			'date'      => __( 'Date Posted', 'wp-job-manager' ),
-			'expires'   => __( 'Listing Expires', 'wp-job-manager' )
+			'job_title' => __( 'Title', 'wp-restaurant-listings' ),
+			'filled'    => __( 'Filled?', 'wp-restaurant-listings' ),
+			'date'      => __( 'Date Posted', 'wp-restaurant-listings' ),
+			'expires'   => __( 'Listing Expires', 'wp-restaurant-listings' )
 		) );
 
 		get_job_manager_template( 'job-dashboard.php', array( 'jobs' => $jobs->query( $args ), 'max_num_pages' => $jobs->max_num_pages, 'job_dashboard_columns' => $job_dashboard_columns ) );
@@ -281,7 +281,7 @@ class WP_Restaurant_Listings_Shortcodes {
 			get_job_manager_template( 'job-listings-end.php' );
 
 			if ( ! $show_pagination && $show_more ) {
-				echo '<a class="load_more_jobs" href="#" style="display:none;"><strong>' . __( 'Load more listings', 'wp-job-manager' ) . '</strong></a>';
+				echo '<a class="load_more_jobs" href="#" style="display:none;"><strong>' . __( 'Load more listings', 'wp-restaurant-listings' ) . '</strong></a>';
 			}
 
 		} else {
@@ -315,7 +315,7 @@ class WP_Restaurant_Listings_Shortcodes {
 					<?php if ( $show_pagination ) : ?>
 						<?php echo get_restaurant_listing_pagination( $jobs->max_num_pages ); ?>
 					<?php else : ?>
-						<a class="load_more_jobs" href="#"><strong><?php _e( 'Load more listings', 'wp-job-manager' ); ?></strong></a>
+						<a class="load_more_jobs" href="#"><strong><?php _e( 'Load more listings', 'wp-restaurant-listings' ); ?></strong></a>
 					<?php endif; ?>
 
 				<?php endif; ?>

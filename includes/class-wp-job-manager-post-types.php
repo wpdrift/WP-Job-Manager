@@ -68,12 +68,12 @@ class WP_Restaurant_Listings_Post_Types {
 		 * Taxonomies
 		 */
 		if ( get_option( 'job_manager_enable_categories' ) ) {
-			$singular  = __( 'Job category', 'wp-job-manager' );
-			$plural    = __( 'Job categories', 'wp-job-manager' );
+			$singular  = __( 'Job category', 'wp-restaurant-listings' );
+			$plural    = __( 'Job categories', 'wp-restaurant-listings' );
 
 			if ( current_theme_supports( 'job-manager-templates' ) ) {
 				$rewrite   = array(
-					'slug'         => _x( 'job-category', 'Job category slug - resave permalinks after changing this', 'wp-job-manager' ),
+					'slug'         => _x( 'job-category', 'Job category slug - resave permalinks after changing this', 'wp-restaurant-listings' ),
 					'with_front'   => false,
 					'hierarchical' => false
 				);
@@ -93,14 +93,14 @@ class WP_Restaurant_Listings_Post_Types {
 						'name'              => $plural,
 						'singular_name'     => $singular,
 						'menu_name'         => ucwords( $plural ),
-						'search_items'      => sprintf( __( 'Search %s', 'wp-job-manager' ), $plural ),
-						'all_items'         => sprintf( __( 'All %s', 'wp-job-manager' ), $plural ),
-						'parent_item'       => sprintf( __( 'Parent %s', 'wp-job-manager' ), $singular ),
-						'parent_item_colon' => sprintf( __( 'Parent %s:', 'wp-job-manager' ), $singular ),
-						'edit_item'         => sprintf( __( 'Edit %s', 'wp-job-manager' ), $singular ),
-						'update_item'       => sprintf( __( 'Update %s', 'wp-job-manager' ), $singular ),
-						'add_new_item'      => sprintf( __( 'Add New %s', 'wp-job-manager' ), $singular ),
-						'new_item_name'     => sprintf( __( 'New %s Name', 'wp-job-manager' ),  $singular )
+						'search_items'      => sprintf( __( 'Search %s', 'wp-restaurant-listings' ), $plural ),
+						'all_items'         => sprintf( __( 'All %s', 'wp-restaurant-listings' ), $plural ),
+						'parent_item'       => sprintf( __( 'Parent %s', 'wp-restaurant-listings' ), $singular ),
+						'parent_item_colon' => sprintf( __( 'Parent %s:', 'wp-restaurant-listings' ), $singular ),
+						'edit_item'         => sprintf( __( 'Edit %s', 'wp-restaurant-listings' ), $singular ),
+						'update_item'       => sprintf( __( 'Update %s', 'wp-restaurant-listings' ), $singular ),
+						'add_new_item'      => sprintf( __( 'Add New %s', 'wp-restaurant-listings' ), $singular ),
+						'new_item_name'     => sprintf( __( 'New %s Name', 'wp-restaurant-listings' ),  $singular )
 	            	),
 		            'show_ui' 				=> true,
 		            'show_tagcloud'			=> false,
@@ -117,12 +117,12 @@ class WP_Restaurant_Listings_Post_Types {
 		}
 
 		if ( get_option( 'job_manager_enable_types' ) ) {
-			$singular  = __( 'Job type', 'wp-job-manager' );
-			$plural    = __( 'Job types', 'wp-job-manager' );
+			$singular  = __( 'Job type', 'wp-restaurant-listings' );
+			$plural    = __( 'Job types', 'wp-restaurant-listings' );
 
 			if ( current_theme_supports( 'job-manager-templates' ) ) {
 				$rewrite   = array(
-					'slug'         => _x( 'job-type', 'Job type slug - resave permalinks after changing this', 'wp-job-manager' ),
+					'slug'         => _x( 'job-type', 'Job type slug - resave permalinks after changing this', 'wp-restaurant-listings' ),
 					'with_front'   => false,
 					'hierarchical' => false
 				);
@@ -141,14 +141,14 @@ class WP_Restaurant_Listings_Post_Types {
 						'name' 				=> $plural,
 						'singular_name' 	=> $singular,
 						'menu_name'         => ucwords( $plural ),
-						'search_items' 		=> sprintf( __( 'Search %s', 'wp-job-manager' ), $plural ),
-						'all_items' 		=> sprintf( __( 'All %s', 'wp-job-manager' ), $plural ),
-						'parent_item' 		=> sprintf( __( 'Parent %s', 'wp-job-manager' ), $singular ),
-						'parent_item_colon' => sprintf( __( 'Parent %s:', 'wp-job-manager' ), $singular ),
-						'edit_item' 		=> sprintf( __( 'Edit %s', 'wp-job-manager' ), $singular ),
-						'update_item' 		=> sprintf( __( 'Update %s', 'wp-job-manager' ), $singular ),
-						'add_new_item' 		=> sprintf( __( 'Add New %s', 'wp-job-manager' ), $singular ),
-						'new_item_name' 	=> sprintf( __( 'New %s Name', 'wp-job-manager' ),  $singular )
+						'search_items' 		=> sprintf( __( 'Search %s', 'wp-restaurant-listings' ), $plural ),
+						'all_items' 		=> sprintf( __( 'All %s', 'wp-restaurant-listings' ), $plural ),
+						'parent_item' 		=> sprintf( __( 'Parent %s', 'wp-restaurant-listings' ), $singular ),
+						'parent_item_colon' => sprintf( __( 'Parent %s:', 'wp-restaurant-listings' ), $singular ),
+						'edit_item' 		=> sprintf( __( 'Edit %s', 'wp-restaurant-listings' ), $singular ),
+						'update_item' 		=> sprintf( __( 'Update %s', 'wp-restaurant-listings' ), $singular ),
+						'add_new_item' 		=> sprintf( __( 'Add New %s', 'wp-restaurant-listings' ), $singular ),
+						'new_item_name' 	=> sprintf( __( 'New %s Name', 'wp-restaurant-listings' ),  $singular )
 					),
 					'show_ui' 				=> true,
 					'show_tagcloud'			=> false,
@@ -167,17 +167,17 @@ class WP_Restaurant_Listings_Post_Types {
 	    /**
 		 * Post types
 		 */
-		$singular  = __( 'Job', 'wp-job-manager' );
-		$plural    = __( 'Restaurants', 'wp-job-manager' );
+		$singular  = __( 'Job', 'wp-restaurant-listings' );
+		$plural    = __( 'Restaurants', 'wp-restaurant-listings' );
 
 		if ( current_theme_supports( 'job-manager-templates' ) ) {
-			$has_archive = _x( 'jobs', 'Post type archive slug - resave permalinks after changing this', 'wp-job-manager' );
+			$has_archive = _x( 'jobs', 'Post type archive slug - resave permalinks after changing this', 'wp-restaurant-listings' );
 		} else {
 			$has_archive = false;
 		}
 
 		$rewrite     = array(
-			'slug'       => _x( 'job', 'Job permalink - resave permalinks after changing this', 'wp-job-manager' ),
+			'slug'       => _x( 'job', 'Job permalink - resave permalinks after changing this', 'wp-restaurant-listings' ),
 			'with_front' => false,
 			'feeds'      => true,
 			'pages'      => false
@@ -188,25 +188,25 @@ class WP_Restaurant_Listings_Post_Types {
 				'labels' => array(
 					'name'			=> $plural,
 					'singular_name' 	=> $singular,
-					'menu_name'             => __( 'Job Listings', 'wp-job-manager' ),
-					'all_items'             => sprintf( __( 'All %s', 'wp-job-manager' ), $plural ),
-					'add_new' 		=> __( 'Add New', 'wp-job-manager' ),
-					'add_new_item' 		=> sprintf( __( 'Add %s', 'wp-job-manager' ), $singular ),
-					'edit' 			=> __( 'Edit', 'wp-job-manager' ),
-					'edit_item' 		=> sprintf( __( 'Edit %s', 'wp-job-manager' ), $singular ),
-					'new_item' 		=> sprintf( __( 'New %s', 'wp-job-manager' ), $singular ),
-					'view' 			=> sprintf( __( 'View %s', 'wp-job-manager' ), $singular ),
-					'view_item' 		=> sprintf( __( 'View %s', 'wp-job-manager' ), $singular ),
-					'search_items' 		=> sprintf( __( 'Search %s', 'wp-job-manager' ), $plural ),
-					'not_found' 		=> sprintf( __( 'No %s found', 'wp-job-manager' ), $plural ),
-					'not_found_in_trash' 	=> sprintf( __( 'No %s found in trash', 'wp-job-manager' ), $plural ),
-					'parent' 		=> sprintf( __( 'Parent %s', 'wp-job-manager' ), $singular ),
-					'featured_image'        => __( 'Company Logo', 'wp-job-manager' ),
-					'set_featured_image'    => __( 'Set company logo', 'wp-job-manager' ),
-					'remove_featured_image' => __( 'Remove company logo', 'wp-job-manager' ),
-					'use_featured_image'    => __( 'Use as company logo', 'wp-job-manager' ),
+					'menu_name'             => __( 'Restaurants', 'wp-restaurant-listings' ),
+					'all_items'             => sprintf( __( 'All %s', 'wp-restaurant-listings' ), $plural ),
+					'add_new' 		=> __( 'Add New', 'wp-restaurant-listings' ),
+					'add_new_item' 		=> sprintf( __( 'Add %s', 'wp-restaurant-listings' ), $singular ),
+					'edit' 			=> __( 'Edit', 'wp-restaurant-listings' ),
+					'edit_item' 		=> sprintf( __( 'Edit %s', 'wp-restaurant-listings' ), $singular ),
+					'new_item' 		=> sprintf( __( 'New %s', 'wp-restaurant-listings' ), $singular ),
+					'view' 			=> sprintf( __( 'View %s', 'wp-restaurant-listings' ), $singular ),
+					'view_item' 		=> sprintf( __( 'View %s', 'wp-restaurant-listings' ), $singular ),
+					'search_items' 		=> sprintf( __( 'Search %s', 'wp-restaurant-listings' ), $plural ),
+					'not_found' 		=> sprintf( __( 'No %s found', 'wp-restaurant-listings' ), $plural ),
+					'not_found_in_trash' 	=> sprintf( __( 'No %s found in trash', 'wp-restaurant-listings' ), $plural ),
+					'parent' 		=> sprintf( __( 'Parent %s', 'wp-restaurant-listings' ), $singular ),
+					'featured_image'        => __( 'Company Logo', 'wp-restaurant-listings' ),
+					'set_featured_image'    => __( 'Set company logo', 'wp-restaurant-listings' ),
+					'remove_featured_image' => __( 'Remove company logo', 'wp-restaurant-listings' ),
+					'use_featured_image'    => __( 'Use as company logo', 'wp-restaurant-listings' ),
 				),
-				'description' => sprintf( __( 'This is where you can create and manage %s.', 'wp-job-manager' ), $plural ),
+				'description' => sprintf( __( 'This is where you can create and manage %s.', 'wp-restaurant-listings' ), $plural ),
 				'public' 				=> true,
 				'show_ui' 				=> true,
 				'capability_type' 		=> 'restaurant_listing',
@@ -231,21 +231,21 @@ class WP_Restaurant_Listings_Post_Types {
 		 * Post status
 		 */
 		register_post_status( 'expired', array(
-			'label'                     => _x( 'Expired', 'post status', 'wp-job-manager' ),
+			'label'                     => _x( 'Expired', 'post status', 'wp-restaurant-listings' ),
 			'public'                    => true,
 			'protected'                 => true,
 			'exclude_from_search'       => true,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
-			'label_count'               => _n_noop( 'Expired <span class="count">(%s)</span>', 'Expired <span class="count">(%s)</span>', 'wp-job-manager' ),
+			'label_count'               => _n_noop( 'Expired <span class="count">(%s)</span>', 'Expired <span class="count">(%s)</span>', 'wp-restaurant-listings' ),
 		) );
 		register_post_status( 'preview', array(
-			'label'                     => _x( 'Preview', 'post status', 'wp-job-manager' ),
+			'label'                     => _x( 'Preview', 'post status', 'wp-restaurant-listings' ),
 			'public'                    => false,
 			'exclude_from_search'       => true,
 			'show_in_admin_all_list'    => false,
 			'show_in_admin_status_list' => true,
-			'label_count'               => _n_noop( 'Preview <span class="count">(%s)</span>', 'Preview <span class="count">(%s)</span>', 'wp-job-manager' ),
+			'label_count'               => _n_noop( 'Preview <span class="count">(%s)</span>', 'Preview <span class="count">(%s)</span>', 'wp-restaurant-listings' ),
 		) );
 	}
 
@@ -255,7 +255,7 @@ class WP_Restaurant_Listings_Post_Types {
 	public function admin_head() {
 		global $menu;
 
-		$plural     = __( 'Job Listings', 'wp-job-manager' );
+		$plural     = __( 'Restaurant Listings', 'wp-restaurant-listings' );
 		$count_jobs = wp_count_posts( 'restaurant_listing', 'readable' );
 
 		if ( ! empty( $menu ) && is_array( $menu ) ) {

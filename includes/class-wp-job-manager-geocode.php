@@ -138,25 +138,25 @@ class WP_Restaurant_Listings_Geocode {
 				if ( $geocoded_address->status ) {
 					switch ( $geocoded_address->status ) {
 						case 'ZERO_RESULTS' :
-							throw new Exception( __( "No results found", 'wp-job-manager' ) );
+							throw new Exception( __( "No results found", 'wp-restaurant-listings' ) );
 						break;
 						case 'OVER_QUERY_LIMIT' :
 							set_transient( 'jm_geocode_over_query_limit', 1, HOUR_IN_SECONDS );
-							throw new Exception( __( "Query limit reached", 'wp-job-manager' ) );
+							throw new Exception( __( "Query limit reached", 'wp-restaurant-listings' ) );
 						break;
 						case 'OK' :
 							if ( ! empty( $geocoded_address->results[0] ) ) {
 								set_transient( $transient_name, $geocoded_address, 24 * HOUR_IN_SECONDS * 365 );
 							} else {
-								throw new Exception( __( "Geocoding error", 'wp-job-manager' ) );
+								throw new Exception( __( "Geocoding error", 'wp-restaurant-listings' ) );
 							}
 						break;
 						default :
-							throw new Exception( __( "Geocoding error", 'wp-job-manager' ) );
+							throw new Exception( __( "Geocoding error", 'wp-restaurant-listings' ) );
 						break;
 					}
 				} else {
-					throw new Exception( __( "Geocoding error", 'wp-job-manager' ) );
+					throw new Exception( __( "Geocoding error", 'wp-restaurant-listings' ) );
 				}
 			}
 		} catch ( Exception $e ) {

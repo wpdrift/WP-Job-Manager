@@ -218,12 +218,12 @@ if ( ! function_exists( 'get_restaurant_listing_post_statuses' ) ) :
  */
 function get_restaurant_listing_post_statuses() {
 	return apply_filters( 'restaurant_listing_post_statuses', array(
-		'draft'           => _x( 'Draft', 'post status', 'wp-job-manager' ),
-		'expired'         => _x( 'Expired', 'post status', 'wp-job-manager' ),
-		'preview'         => _x( 'Preview', 'post status', 'wp-job-manager' ),
-		'pending'         => _x( 'Pending approval', 'post status', 'wp-job-manager' ),
-		'pending_payment' => _x( 'Pending payment', 'post status', 'wp-job-manager' ),
-		'publish'         => _x( 'Active', 'post status', 'wp-job-manager' ),
+		'draft'           => _x( 'Draft', 'post status', 'wp-restaurant-listings' ),
+		'expired'         => _x( 'Expired', 'post status', 'wp-restaurant-listings' ),
+		'preview'         => _x( 'Preview', 'post status', 'wp-restaurant-listings' ),
+		'pending'         => _x( 'Pending approval', 'post status', 'wp-restaurant-listings' ),
+		'pending_payment' => _x( 'Pending payment', 'post status', 'wp-restaurant-listings' ),
+		'publish'         => _x( 'Active', 'post status', 'wp-restaurant-listings' ),
 	) );
 }
 endif;
@@ -319,11 +319,11 @@ function job_manager_get_filtered_links( $args = array() ) {
 
 	$links = apply_filters( 'job_manager_job_filters_showing_jobs_links', array(
 		'reset' => array(
-			'name' => __( 'Reset', 'wp-job-manager' ),
+			'name' => __( 'Reset', 'wp-restaurant-listings' ),
 			'url'  => '#'
 		),
 		'rss_link' => array(
-			'name' => __( 'RSS', 'wp-job-manager' ),
+			'name' => __( 'RSS', 'wp-restaurant-listings' ),
 			'url'  => get_restaurant_listing_rss_link( apply_filters( 'job_manager_get_listings_custom_filter_rss_args', array(
 				'job_types'       => isset( $args['filter_job_types'] ) ? implode( ',', $args['filter_job_types'] ) : '',
 				'search_location' => $args['search_location'],
@@ -410,7 +410,7 @@ function wp_job_manager_create_account( $args, $deprecated = '' ) {
 	$email    = apply_filters( 'user_registration_email', sanitize_email( $email ) );
 
 	if ( empty( $email ) ) {
-		return new WP_Error( 'validation-error', __( 'Invalid email address.', 'wp-job-manager' ) );
+		return new WP_Error( 'validation-error', __( 'Invalid email address.', 'wp-restaurant-listings' ) );
 	}
 
 	if ( empty( $username ) ) {
@@ -418,11 +418,11 @@ function wp_job_manager_create_account( $args, $deprecated = '' ) {
 	}
 
 	if ( ! is_email( $email ) ) {
-		return new WP_Error( 'validation-error', __( 'Your email address isn&#8217;t correct.', 'wp-job-manager' ) );
+		return new WP_Error( 'validation-error', __( 'Your email address isn&#8217;t correct.', 'wp-restaurant-listings' ) );
 	}
 
 	if ( email_exists( $email ) ) {
-		return new WP_Error( 'validation-error', __( 'This email is already registered, please choose another one.', 'wp-job-manager' ) );
+		return new WP_Error( 'validation-error', __( 'This email is already registered, please choose another one.', 'wp-restaurant-listings' ) );
 	}
 
 	// Ensure username is unique
@@ -574,9 +574,9 @@ function job_manager_dropdown_categories( $args = '' ) {
 		'value'           => 'id',
 		'multiple'        => true,
 		'show_option_all' => false,
-		'placeholder'     => __( 'Choose a category&hellip;', 'wp-job-manager' ),
-		'no_results_text' => __( 'No results match', 'wp-job-manager' ),
-		'multiple_text'   => __( 'Select Some Options', 'wp-job-manager' )
+		'placeholder'     => __( 'Choose a category&hellip;', 'wp-restaurant-listings' ),
+		'no_results_text' => __( 'No results match', 'wp-restaurant-listings' ),
+		'multiple_text'   => __( 'Select Some Options', 'wp-restaurant-listings' )
 	);
 
 	$r = wp_parse_args( $args, $defaults );
@@ -774,9 +774,9 @@ function job_manager_upload_file( $file, $args = array() ) {
 
 	if ( ! in_array( $file['type'], $allowed_mime_types ) ) {
 		if ( $args['file_label'] ) {
-			return new WP_Error( 'upload', sprintf( __( '"%s" (filetype %s) needs to be one of the following file types: %s', 'wp-job-manager' ), $args['file_label'], $file['type'], implode( ', ', array_keys( $allowed_mime_types ) ) ) );
+			return new WP_Error( 'upload', sprintf( __( '"%s" (filetype %s) needs to be one of the following file types: %s', 'wp-restaurant-listings' ), $args['file_label'], $file['type'], implode( ', ', array_keys( $allowed_mime_types ) ) ) );
 		} else {
-			return new WP_Error( 'upload', sprintf( __( 'Uploaded files need to be one of the following file types: %s', 'wp-job-manager' ), implode( ', ', array_keys( $allowed_mime_types ) ) ) );
+			return new WP_Error( 'upload', sprintf( __( 'Uploaded files need to be one of the following file types: %s', 'wp-restaurant-listings' ), implode( ', ', array_keys( $allowed_mime_types ) ) ) );
 		}
 	} else {
 		$upload = wp_handle_upload( $file, apply_filters( 'submit_job_wp_handle_upload_overrides', array( 'test_form' => false ) ) );

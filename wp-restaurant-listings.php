@@ -88,8 +88,8 @@ class WP_Restaurant_Listings {
 	 * Localisation
 	 */
 	public function load_plugin_textdomain() {
-		load_textdomain( 'wp-job-manager', WP_LANG_DIR . "/wp-job-manager/wp-job-manager-" . apply_filters( 'plugin_locale', get_locale(), 'wp-job-manager' ) . ".mo" );
-		load_plugin_textdomain( 'wp-job-manager', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_textdomain( 'wp-restaurant-listings', WP_LANG_DIR . "/wp-job-manager/wp-job-manager-" . apply_filters( 'plugin_locale', get_locale(), 'wp-restaurant-listings' ) . ".mo" );
+		load_plugin_textdomain( 'wp-restaurant-listings', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
@@ -116,7 +116,7 @@ class WP_Restaurant_Listings {
 		$ajax_data 		  = array(
 			'ajax_url'                => $ajax_url,
 			'is_rtl'                  => is_rtl() ? 1 : 0,
-			'i18n_load_prev_listings' => __( 'Load previous listings', 'wp-job-manager' ),
+			'i18n_load_prev_listings' => __( 'Load previous listings', 'wp-restaurant-listings' ),
 		);
 
 		// WPML workaround
@@ -153,7 +153,7 @@ class WP_Restaurant_Listings {
 				'ajax_url'               => $ajax_url,
 				'js_field_html_img'      => esc_js( str_replace( "\n", "", $js_field_html_img ) ),
 				'js_field_html'          => esc_js( str_replace( "\n", "", $js_field_html ) ),
-				'i18n_invalid_file_type' => __( 'Invalid file type. Accepted types:', 'wp-job-manager' )
+				'i18n_invalid_file_type' => __( 'Invalid file type. Accepted types:', 'wp-restaurant-listings' )
 			) );
 		}
 
@@ -164,7 +164,7 @@ class WP_Restaurant_Listings {
 		wp_register_script( 'wp-job-manager-job-submission', JOB_MANAGER_PLUGIN_URL . '/assets/js/job-submission.min.js', array( 'jquery' ), JOB_MANAGER_VERSION, true );
 		wp_localize_script( 'wp-job-manager-ajax-filters', 'job_manager_ajax_filters', $ajax_data );
 		wp_localize_script( 'wp-job-manager-job-dashboard', 'job_manager_job_dashboard', array(
-			'i18n_confirm_delete' => __( 'Are you sure you want to delete this listing?', 'wp-job-manager' )
+			'i18n_confirm_delete' => __( 'Are you sure you want to delete this listing?', 'wp-restaurant-listings' )
 		) );
 
 		wp_enqueue_style( 'wp-job-manager-frontend', JOB_MANAGER_PLUGIN_URL . '/assets/css/frontend.css' );

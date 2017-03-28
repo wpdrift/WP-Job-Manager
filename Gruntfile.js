@@ -93,7 +93,7 @@ module.exports = function( grunt ){
 		addtextdomain: {
 			wpjobmanager: {
 				options: {
-					textdomain: 'wp-job-manager'
+					textdomain: 'wp-restaurant-listings'
 				},
 				files: {
 					src: [

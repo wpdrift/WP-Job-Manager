@@ -59,7 +59,7 @@ class WP_Restaurant_Listings_Form_Edit_Job extends WP_Restaurant_Listings_Form_S
 		$job = get_post( $this->job_id );
 
 		if ( empty( $this->job_id  ) || ( $job->post_status !== 'publish' && ! job_manager_user_can_edit_pending_submissions() ) ) {
-			echo wpautop( __( 'Invalid listing', 'wp-job-manager' ) );
+			echo wpautop( __( 'Invalid listing', 'wp-restaurant-listings' ) );
 			return;
 		}
 
@@ -98,7 +98,7 @@ class WP_Restaurant_Listings_Form_Edit_Job extends WP_Restaurant_Listings_Form_S
 			'job_fields'         => $this->get_fields( 'job' ),
 			'company_fields'     => $this->get_fields( 'company' ),
 			'step'               => $this->get_step(),
-			'submit_button_text' => __( 'Save changes', 'wp-job-manager' )
+			'submit_button_text' => __( 'Save changes', 'wp-restaurant-listings' )
 			) );
 	}
 
@@ -127,10 +127,10 @@ class WP_Restaurant_Listings_Form_Edit_Job extends WP_Restaurant_Listings_Form_S
 			// Successful
 			switch ( get_post_status( $this->job_id ) ) {
 				case 'publish' :
-					echo '<div class="job-manager-message">' . __( 'Your changes have been saved.', 'wp-job-manager' ) . ' <a href="' . get_permalink( $this->job_id ) . '">' . __( 'View &rarr;', 'wp-job-manager' ) . '</a>' . '</div>';
+					echo '<div class="job-manager-message">' . __( 'Your changes have been saved.', 'wp-restaurant-listings' ) . ' <a href="' . get_permalink( $this->job_id ) . '">' . __( 'View &rarr;', 'wp-restaurant-listings' ) . '</a>' . '</div>';
 				break;
 				default :
-					echo '<div class="job-manager-message">' . __( 'Your changes have been saved.', 'wp-job-manager' ) . '</div>';
+					echo '<div class="job-manager-message">' . __( 'Your changes have been saved.', 'wp-restaurant-listings' ) . '</div>';
 				break;
 			}
 

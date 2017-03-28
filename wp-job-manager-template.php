@@ -132,7 +132,7 @@ function get_the_job_status( $post = null ) {
 	if ( isset( $statuses[ $status ] ) ) {
 		$status = $statuses[ $status ];
 	} else {
-		$status = __( 'Inactive', 'wp-job-manager' );
+		$status = __( 'Inactive', 'wp-restaurant-listings' );
 	}
 
 	return apply_filters( 'the_job_status', $status, $post );
@@ -219,7 +219,7 @@ function get_the_job_application_method( $post = null ) {
 		$method->type      = 'email';
 		$method->raw_email = $apply;
 		$method->email     = antispambot( $apply );
-		$method->subject   = apply_filters( 'job_manager_application_email_subject', sprintf( __( 'Application via "%s" listing on %s', 'wp-job-manager' ), $post->post_title, home_url() ), $post );
+		$method->subject   = apply_filters( 'job_manager_application_email_subject', sprintf( __( 'Application via "%s" listing on %s', 'wp-restaurant-listings' ), $post->post_title, home_url() ), $post );
 	} else {
 		if ( strpos( $apply, 'http' ) !== 0 )
 			$apply = 'http://' . $apply;
@@ -278,9 +278,9 @@ function the_job_publish_date( $post = null ) {
 	$date_format = get_option( 'job_manager_date_format' );
 
 	if ( $date_format === 'default' ) {
-		$display_date = __( 'Posted on ', 'wp-job-manager' ) . get_post_time( get_option( 'date_format' ) );
+		$display_date = __( 'Posted on ', 'wp-restaurant-listings' ) . get_post_time( get_option( 'date_format' ) );
 	} else {
-		$display_date = sprintf( __( 'Posted %s ago', 'wp-job-manager' ), human_time_diff( get_post_time( 'U' ), current_time( 'timestamp' ) ) );
+		$display_date = sprintf( __( 'Posted %s ago', 'wp-restaurant-listings' ), human_time_diff( get_post_time( 'U' ), current_time( 'timestamp' ) ) );
 	}
 
 	echo '<time datetime="' . get_post_time( 'Y-m-d' ) . '">' . $display_date . '</time>';
@@ -298,7 +298,7 @@ function get_the_job_publish_date( $post = null ) {
 	if ( $date_format === 'default' ) {
 		return get_post_time( get_option( 'date_format' ) );
 	} else {
-		return sprintf( __( 'Posted %s ago', 'wp-job-manager' ), human_time_diff( get_post_time( 'U' ), current_time( 'timestamp' ) ) );
+		return sprintf( __( 'Posted %s ago', 'wp-restaurant-listings' ), human_time_diff( get_post_time( 'U' ), current_time( 'timestamp' ) ) );
 	}
 }
 
@@ -319,7 +319,7 @@ function the_job_location( $map_link = true, $post = null ) {
 			echo wp_kses_post( $location );
 		}
 	} else {
-		echo wp_kses_post( apply_filters( 'the_job_location_anywhere_text', __( 'Anywhere', 'wp-job-manager' ) ) );
+		echo wp_kses_post( apply_filters( 'the_job_location_anywhere_text', __( 'Anywhere', 'wp-restaurant-listings' ) ) );
 	}
 }
 
