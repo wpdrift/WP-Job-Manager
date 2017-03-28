@@ -1248,7 +1248,7 @@ msgid ""
 msgstr ""
 
 #: templates/job-application-email.php:4
-msgid "Apply using webmail: "
+msgid "Inquire using webmail: "
 msgstr ""
 
 #: templates/job-application-url.php:1
