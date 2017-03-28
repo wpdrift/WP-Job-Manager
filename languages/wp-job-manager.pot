@@ -1065,7 +1065,7 @@ msgid "Enter an email address or website URL"
 msgstr ""
 
 #: includes/forms/class-wp-job-manager-form-submit-job.php:156
-msgid "Job Title"
+msgid "Restaurant Title "
 msgstr ""
 
 #: includes/forms/class-wp-job-manager-form-submit-job.php:164
@@ -1256,7 +1256,7 @@ msgid "To apply for this job please visit the following URL:"
 msgstr ""
 
 #: templates/job-application.php:7
-msgid "Apply for job"
+msgid "Inquire"
 msgstr ""
 
 #: templates/job-dashboard-login.php:3

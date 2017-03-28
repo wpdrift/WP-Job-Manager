@@ -155,7 +155,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 		$this->fields = apply_filters( 'submit_job_form_fields', array(
 			'job' => array(
 				'job_title' => array(
-					'label'       => __( 'Job Title', 'wp-restaurant-listings' ),
+					'label'       => __( 'Restaurant Title ', 'wp-restaurant-listings' ),
 					'type'        => 'text',
 					'required'    => true,
 					'placeholder' => '',

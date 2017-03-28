@@ -4,7 +4,7 @@
 	<div class="job_application application">
 		<?php do_action( 'job_application_start', $apply ); ?>
 		
-		<input type="button" class="application_button button" value="<?php _e( 'Apply for job', 'wp-restaurant-listings' ); ?>" />
+		<input type="button" class="application_button button" value="<?php _e( 'Inquire', 'wp-restaurant-listings' ); ?>" />
 		
 		<div class="application_details">
 			<?php
