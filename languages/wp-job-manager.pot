@@ -1243,7 +1243,7 @@ msgstr ""
 
 #: templates/job-application-email.php:1
 msgid ""
-"To apply for this job <strong>email your details to</strong> <a "
+"To inquire for this restaurant <strong>email your details to</strong> <a "
 "class=\"job_application_email\" href=\"mailto:%1$s%2$s\">%1$s</a>"
 msgstr ""
 
@@ -1252,7 +1252,7 @@ msgid "Apply using webmail: "
 msgstr ""
 
 #: templates/job-application-url.php:1
-msgid "To apply for this job please visit the following URL:"
+msgid "To inquire for this restaurant please visit the following URL:"
 msgstr ""
 
 #: templates/job-application.php:7
