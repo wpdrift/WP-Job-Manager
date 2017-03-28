@@ -1,25 +1,25 @@
 <?php
 /**
- * Plugin Name: WP Job Manager
- * Plugin URI: https://wpjobmanager.com/
- * Description: Manage job listings from the WordPress admin panel, and allow users to post jobs directly to your site.
- * Version: 1.25.3
- * Author: Automattic
- * Author URI: https://wpjobmanager.com/
+ * Plugin Name: WP Restaurant Listings
+ * Plugin URI: http://restaurants.wpdrift.com/
+ * Description: Manage restaurant listings from the WordPress admin panel, and allow users to post restaurants directly to your site.
+ * Version: 0.0.1
+ * Author: WPDrift
+ * Author URI: http://wpdrift.com/
  * Requires at least: 4.1
  * Tested up to: 4.7.4
- * Text Domain: wp-job-manager
+ * Text Domain: wp-restaurant-listings
  * Domain Path: /languages/
- * License: GPL2+
+ * License: GPL3+
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * WP_Job_Manager class.
+ * WP_Restaurant_Listings class.
  */
-class WP_Job_Manager {
+class WP_Restaurant_Listings {
 
 	/**
 	 * Constructor - get the plugin hooked in and ready
@@ -177,4 +177,4 @@ function job_manager_add_post_types( $types ) {
 }
 add_filter( 'post_types_to_delete_with_user', 'job_manager_add_post_types', 10 );
 
-$GLOBALS['job_manager'] = new WP_Job_Manager();
+$GLOBALS['job_manager'] = new WP_Restaurant_Listings();
