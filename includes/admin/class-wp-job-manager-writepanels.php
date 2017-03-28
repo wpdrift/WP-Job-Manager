@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WP_Job_Manager_Writepanels {
+class WP_Restaurant_Listings_Writepanels {
 
 	/**
 	 * __construct function.
@@ -517,8 +517,8 @@ class WP_Job_Manager_Writepanels {
 			elseif ( '_job_location' === $key ) {
 				if ( update_post_meta( $post_id, $key, sanitize_text_field( $_POST[ $key ] ) ) ) {
 					// Location data will be updated by hooked in methods
-				} elseif ( apply_filters( 'job_manager_geolocation_enabled', true ) && ! WP_Job_Manager_Geocode::has_location_data( $post_id ) ) {
-					WP_Job_Manager_Geocode::generate_location_data( $post_id, sanitize_text_field( $_POST[ $key ] ) );
+				} elseif ( apply_filters( 'job_manager_geolocation_enabled', true ) && ! WP_Restaurant_Listings_Geocode::has_location_data( $post_id ) ) {
+					WP_Restaurant_Listings_Geocode::generate_location_data( $post_id, sanitize_text_field( $_POST[ $key ] ) );
 				}
 			}
 
@@ -560,4 +560,4 @@ class WP_Job_Manager_Writepanels {
 	}
 }
 
-new WP_Job_Manager_Writepanels();
+new WP_Restaurant_Listings_Writepanels();

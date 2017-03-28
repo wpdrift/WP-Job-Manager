@@ -1,8 +1,8 @@
 <?php
 /**
- * WP_Job_Manager_Forms class.
+ * WP_Restaurant_Listings_Forms class.
  */
-class WP_Job_Manager_Forms {
+class WP_Restaurant_Listings_Forms {
 
 	/**
 	 * Constructor
@@ -27,12 +27,12 @@ class WP_Job_Manager_Forms {
 	 * @return string class name on success, false on failure
 	 */
 	private function load_form_class( $form_name ) {
-		if ( ! class_exists( 'WP_Job_Manager_Form' ) ) {
+		if ( ! class_exists( 'WP_Restaurant_Listings_Form' ) ) {
 			include( 'abstracts/abstract-wp-job-manager-form.php' );
 		}
 
 		// Now try to load the form_name
-		$form_class  = 'WP_Job_Manager_Form_' . str_replace( '-', '_', $form_name );
+		$form_class  = 'WP_Restaurant_Listings_Form_' . str_replace( '-', '_', $form_name );
 		$form_file   = JOB_MANAGER_PLUGIN_DIR . '/includes/forms/class-wp-job-manager-form-' . $form_name . '.php';
 
 		if ( class_exists( $form_class ) ) {

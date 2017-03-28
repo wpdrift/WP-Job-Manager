@@ -5,9 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WP_Job_Manager_Cache_Helper class.
+ * WP_Restaurant_Listings_Cache_Helper class.
  */
-class WP_Job_Manager_Cache_Helper {
+class WP_Restaurant_Listings_Cache_Helper {
 
 	public static function init() {
 		add_action( 'save_post', array( __CLASS__, 'flush_get_job_listings_cache' ) );
@@ -109,4 +109,4 @@ class WP_Job_Manager_Cache_Helper {
 	}
 }
 
-WP_Job_Manager_Cache_Helper::init();
+WP_Restaurant_Listings_Cache_Helper::init();

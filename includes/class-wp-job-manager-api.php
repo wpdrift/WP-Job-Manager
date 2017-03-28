@@ -3,11 +3,11 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * WP_Job_Manager_API API
+ * WP_Restaurant_Listings_API API
  *
  * This API class handles API requests.
  */
-class WP_Job_Manager_API {
+class WP_Restaurant_Listings_API {
 
 	/**
 	 * __construct function.
@@ -74,4 +74,4 @@ class WP_Job_Manager_API {
 	}
 }
 
-new WP_Job_Manager_API();
+new WP_Restaurant_Listings_API();

@@ -3,9 +3,9 @@
 include_once( 'class-wp-job-manager-form-submit-job.php' );
 
 /**
- * WP_Job_Manager_Form_Edit_Job class.
+ * WP_Restaurant_Listings_Form_Edit_Job class.
  */
-class WP_Job_Manager_Form_Edit_Job extends WP_Job_Manager_Form_Submit_Job {
+class WP_Restaurant_Listings_Form_Edit_Job extends WP_Restaurant_Listings_Form_Submit_Job {
 
 	/**
 	 * Form name
@@ -19,7 +19,7 @@ class WP_Job_Manager_Form_Edit_Job extends WP_Job_Manager_Form_Submit_Job {
 	 * Instance
 	 *
 	 * @access protected
-	 * @var WP_Job_Manager_Form_Edit_Job The single instance of the class
+	 * @var WP_Restaurant_Listings_Form_Edit_Job The single instance of the class
 	 */
 	protected static $_instance = null;
 

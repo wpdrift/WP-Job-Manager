@@ -3,9 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * WP_Job_Manager_Settings class.
+ * WP_Restaurant_Listings_Settings class.
  */
-class WP_Job_Manager_Settings {
+class WP_Restaurant_Listings_Settings {
 
 	/**
 	 * __construct function.

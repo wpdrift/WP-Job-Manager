@@ -3,9 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * WP_Job_Manager_CPT class.
+ * WP_Restaurant_Listings_CPT class.
  */
-class WP_Job_Manager_CPT {
+class WP_Restaurant_Listings_CPT {
 
 	/**
 	 * __construct function.
@@ -186,7 +186,7 @@ class WP_Job_Manager_CPT {
 		$r['selected']     = ( isset( $wp_query->query['job_listing_category'] ) ) ? $wp_query->query['job_listing_category'] : '';
 		$r['menu_order']   = false;
 		$terms             = get_terms( 'job_listing_category', $r );
-		$walker            = new WP_Job_Manager_Category_Walker;
+		$walker            = new WP_Restaurant_Listings_Category_Walker;
 
 		if ( ! $terms ) {
 			return;
@@ -515,4 +515,4 @@ class WP_Job_Manager_CPT {
 	}
 }
 
-new WP_Job_Manager_CPT();
+new WP_Restaurant_Listings_CPT();

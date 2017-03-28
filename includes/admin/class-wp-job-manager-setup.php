@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WP_Job_Manager_Setup class.
+ * WP_Restaurant_Listings_Setup class.
  */
-class WP_Job_Manager_Setup {
+class WP_Restaurant_Listings_Setup {
 
 	/**
 	 * __construct function.
@@ -255,4 +255,4 @@ class WP_Job_Manager_Setup {
 	}
 }
 
-new WP_Job_Manager_Setup();
+new WP_Restaurant_Listings_Setup();

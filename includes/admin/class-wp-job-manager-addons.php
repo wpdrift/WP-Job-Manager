@@ -5,12 +5,12 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if ( ! class_exists( 'WP_Job_Manager_Addons' ) ) :
+if ( ! class_exists( 'WP_Restaurant_Listings_Addons' ) ) :
 
 /**
- * WP_Job_Manager_Addons Class
+ * WP_Restaurant_Listings_Addons Class
  */
-class WP_Job_Manager_Addons {
+class WP_Restaurant_Listings_Addons {
 
 	/**
 	 * Handles output of the reports page in admin.
@@ -66,4 +66,4 @@ class WP_Job_Manager_Addons {
 
 endif;
 
-return new WP_Job_Manager_Addons();
+return new WP_Restaurant_Listings_Addons();

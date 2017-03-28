@@ -3,9 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * WP_Job_Manager_Shortcodes class.
+ * WP_Restaurant_Listings_Shortcodes class.
  */
-class WP_Job_Manager_Shortcodes {
+class WP_Restaurant_Listings_Shortcodes {
 
 	/**
 	 * Dashboard message
@@ -539,4 +539,4 @@ class WP_Job_Manager_Shortcodes {
 	}
 }
 
-new WP_Job_Manager_Shortcodes();
+new WP_Restaurant_Listings_Shortcodes();

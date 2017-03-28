@@ -52,8 +52,8 @@
 * Feature - Search custom fields in backend job listing search.
 * Tweak - Allow job expiry field to be localised.
 * Fix - The above change avoids creation of duplicate images in media library.
-* Dev - Added methods to WP_Job_Manager_Form; get_steps, get_step_key, set_step.
-* Dev - Made WP_Job_Manager_Form call the next 'handler' if no view is defined for the next step.
+* Dev - Added methods to WP_Restaurant_Listings_Form; get_steps, get_step_key, set_step.
+* Dev - Made WP_Restaurant_Listings_Form call the next 'handler' if no view is defined for the next step.
 * Dev - Added template to control job preview form.
 
 = 1.23.13 =

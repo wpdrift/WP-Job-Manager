@@ -1,9 +1,9 @@
 <?php
 
 /**
- * WP_Job_Manager_Form_Submit_Job class.
+ * WP_Restaurant_Listings_Form_Submit_Job class.
  */
-class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
+class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form {
 
 	/**
 	 * Form name
@@ -33,7 +33,7 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 	 * Instance
 	 *
 	 * @access protected
-	 * @var WP_Job_Manager_Form_Submit_Job The single instance of the class
+	 * @var WP_Restaurant_Listings_Form_Submit_Job The single instance of the class
 	 */
 	protected static $_instance = null;
 

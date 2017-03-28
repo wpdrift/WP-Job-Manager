@@ -5,9 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WP_Job_Manager_Install
+ * WP_Restaurant_Listings_Install
  */
-class WP_Job_Manager_Install {
+class WP_Restaurant_Listings_Install {
 
 	/**
 	 * Install WP Job Manager

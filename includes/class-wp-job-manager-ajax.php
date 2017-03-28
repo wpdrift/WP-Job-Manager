@@ -3,9 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * WP_Job_Manager_Ajax class.
+ * WP_Restaurant_Listings_Ajax class.
  */
-class WP_Job_Manager_Ajax {
+class WP_Restaurant_Listings_Ajax {
 
 	/**
 	 * Constructor
@@ -244,4 +244,4 @@ class WP_Job_Manager_Ajax {
 	}
 }
 
-new WP_Job_Manager_Ajax();
+new WP_Restaurant_Listings_Ajax();

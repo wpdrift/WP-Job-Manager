@@ -1,8 +1,8 @@
 <?php
 /**
- * WP_Job_Manager_Content class.
+ * WP_Restaurant_Listings_Content class.
  */
-class WP_Job_Manager_Post_Types {
+class WP_Restaurant_Listings_Post_Types {
 
 	/**
 	 * Constructor
@@ -638,8 +638,8 @@ class WP_Job_Manager_Post_Types {
 	public function pmxi_saved_post( $post_id ) {
 		if ( 'job_listing' === get_post_type( $post_id ) ) {
 			$this->maybe_add_default_meta_data( $post_id );
-			if ( ! WP_Job_Manager_Geocode::has_location_data( $post_id ) && ( $location = get_post_meta( $post_id, '_job_location', true ) ) ) {
-				WP_Job_Manager_Geocode::generate_location_data( $post_id, $location );
+			if ( ! WP_Restaurant_Listings_Geocode::has_location_data( $post_id ) && ( $location = get_post_meta( $post_id, '_job_location', true ) ) ) {
+				WP_Restaurant_Listings_Geocode::generate_location_data( $post_id, $location );
 			}
 		}
 	}

@@ -3,9 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * WP_Job_Manager_Admin class.
+ * WP_Restaurant_Listings_Admin class.
  */
-class WP_Job_Manager_Admin {
+class WP_Restaurant_Listings_Admin {
 
 	/**
 	 * __construct function.
@@ -19,7 +19,7 @@ class WP_Job_Manager_Admin {
 		include_once( 'class-wp-job-manager-writepanels.php' );
 		include_once( 'class-wp-job-manager-setup.php' );
 
-		$this->settings_page = new WP_Job_Manager_Settings();
+		$this->settings_page = new WP_Restaurant_Listings_Settings();
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ), 12 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -75,4 +75,4 @@ class WP_Job_Manager_Admin {
 	}
 }
 
-new WP_Job_Manager_Admin();
+new WP_Restaurant_Listings_Admin();

@@ -45,14 +45,14 @@ class WP_Restaurant_Listings {
 		}
 
 		// Init classes
-		$this->forms      = new WP_Job_Manager_Forms();
-		$this->post_types = new WP_Job_Manager_Post_Types();
+		$this->forms      = new WP_Restaurant_Listings_Forms();
+		$this->post_types = new WP_Restaurant_Listings_Post_Types();
 
 		// Activation - works with symlinks
 		register_activation_hook( basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ), array( $this, 'activate' ) );
 
 		// Switch theme
-		add_action( 'after_switch_theme', array( 'WP_Job_Manager_Ajax', 'add_endpoint' ), 10 );
+		add_action( 'after_switch_theme', array( 'WP_Restaurant_Listings_Ajax', 'add_endpoint' ), 10 );
 		add_action( 'after_switch_theme', array( $this->post_types, 'register_post_types' ), 11 );
 		add_action( 'after_switch_theme', 'flush_rewrite_rules', 15 );
 
@@ -68,9 +68,9 @@ class WP_Restaurant_Listings {
 	 * Called on plugin activation
 	 */
 	public function activate() {
-		WP_Job_Manager_Ajax::add_endpoint();
+		WP_Restaurant_Listings_Ajax::add_endpoint();
 		$this->post_types->register_post_types();
-		WP_Job_Manager_Install::install();
+		WP_Restaurant_Listings_Install::install();
 		flush_rewrite_rules();
 	}
 
@@ -79,7 +79,7 @@ class WP_Restaurant_Listings {
 	 */
 	public function updater() {
 		if ( version_compare( JOB_MANAGER_VERSION, get_option( 'wp_job_manager_version' ), '>' ) ) {
-			WP_Job_Manager_Install::install();
+			WP_Restaurant_Listings_Install::install();
 			flush_rewrite_rules();
 		}
 	}
@@ -111,7 +111,7 @@ class WP_Restaurant_Listings {
 	 * Register and enqueue scripts and css
 	 */
 	public function frontend_scripts() {
-		$ajax_url         = WP_Job_Manager_Ajax::get_endpoint();
+		$ajax_url         = WP_Restaurant_Listings_Ajax::get_endpoint();
 		$ajax_filter_deps = array( 'jquery', 'jquery-deserialize' );
 		$ajax_data 		  = array(
 			'ajax_url'                => $ajax_url,

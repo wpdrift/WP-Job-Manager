@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Abstract WP_Job_Manager_Form class.
+ * Abstract WP_Restaurant_Listings_Form class.
  *
  * @abstract
  */
-abstract class WP_Job_Manager_Form {
+abstract class WP_Restaurant_Listings_Form {
 
 	/**
 	 * Form fields

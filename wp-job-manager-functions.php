@@ -137,7 +137,7 @@ function get_job_listings( $args = array() ) {
 
 	// Generate hash
 	$to_hash         = json_encode( $query_args ) . apply_filters( 'wpml_current_language', '' );
-	$query_args_hash = 'jm_' . md5( $to_hash ) . WP_Job_Manager_Cache_Helper::get_transient_version( 'get_job_listings' );
+	$query_args_hash = 'jm_' . md5( $to_hash ) . WP_Restaurant_Listings_Cache_Helper::get_transient_version( 'get_job_listings' );
 
 	do_action( 'before_get_job_listings', $query_args, $args );
 
@@ -595,7 +595,7 @@ function job_manager_dropdown_categories( $args = '' ) {
 	extract( $r );
 
 	// Store in a transient to help sites with many cats
-	$categories_hash = 'jm_cats_' . md5( json_encode( $r ) . WP_Job_Manager_Cache_Helper::get_transient_version( 'jm_get_' . $r['taxonomy'] ) );
+	$categories_hash = 'jm_cats_' . md5( json_encode( $r ) . WP_Restaurant_Listings_Cache_Helper::get_transient_version( 'jm_get_' . $r['taxonomy'] ) );
 	$categories      = get_transient( $categories_hash );
 
 	if ( empty( $categories ) ) {
@@ -623,7 +623,7 @@ function job_manager_dropdown_categories( $args = '' ) {
 	if ( ! empty( $categories ) ) {
 		include_once( JOB_MANAGER_PLUGIN_DIR . '/includes/class-wp-job-manager-category-walker.php' );
 
-		$walker = new WP_Job_Manager_Category_Walker;
+		$walker = new WP_Restaurant_Listings_Category_Walker;
 
 		if ( $hierarchical ) {
 			$depth = $r['depth'];  // Walk the full depth.

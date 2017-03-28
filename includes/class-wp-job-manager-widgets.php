@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Job Manager Widget base
  */
-class WP_Job_Manager_Widget extends WP_Widget {
+class WP_Restaurant_Listings_Widget extends WP_Widget {
 
 	/**
 	 * Widget CSS class
@@ -183,7 +183,7 @@ class WP_Job_Manager_Widget extends WP_Widget {
 /**
  * Recent Jobs Widget
  */
-class WP_Job_Manager_Widget_Recent_Jobs extends WP_Job_Manager_Widget {
+class WP_Restaurant_Listings_Widget_Recent_Jobs extends WP_Restaurant_Listings_Widget {
 
 	/**
 	 * Constructor
@@ -288,7 +288,7 @@ class WP_Job_Manager_Widget_Recent_Jobs extends WP_Job_Manager_Widget {
 /**
  * Featured Jobs Widget
  */
-class WP_Job_Manager_Widget_Featured_Jobs extends WP_Job_Manager_Widget {
+class WP_Restaurant_Listings_Widget_Featured_Jobs extends WP_Restaurant_Listings_Widget {
 
 	/**
 	 * Constructor
@@ -379,5 +379,5 @@ class WP_Job_Manager_Widget_Featured_Jobs extends WP_Job_Manager_Widget {
 	}
 }
 
-register_widget( 'WP_Job_Manager_Widget_Recent_Jobs' );
-register_widget( 'WP_Job_Manager_Widget_Featured_Jobs' );
+register_widget( 'WP_Restaurant_Listings_Widget_Recent_Jobs' );
+register_widget( 'WP_Restaurant_Listings_Widget_Featured_Jobs' );

@@ -3,11 +3,11 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * WP_Job_Manager_Geocode
+ * WP_Restaurant_Listings_Geocode
  *
  * Obtains Geolocation data for posted jobs from Google.
  */
-class WP_Job_Manager_Geocode {
+class WP_Restaurant_Listings_Geocode {
 
 	/**
 	 * Constructor
@@ -212,4 +212,4 @@ class WP_Job_Manager_Geocode {
 	}
 }
 
-new WP_Job_Manager_Geocode();
+new WP_Restaurant_Listings_Geocode();

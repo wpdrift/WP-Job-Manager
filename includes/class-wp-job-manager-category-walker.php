@@ -2,11 +2,11 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * WP_Job_Manager_Category_Walker class.
+ * WP_Restaurant_Listings_Category_Walker class.
  *
  * @extends Walker
  */
-class WP_Job_Manager_Category_Walker extends Walker {
+class WP_Restaurant_Listings_Category_Walker extends Walker {
 
 	/**
 	 * Tree type
