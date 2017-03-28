@@ -13,7 +13,7 @@ function get_restaurant_listings( $args = array() ) {
 		'search_location'   => '',
 		'search_keywords'   => '',
 		'search_categories' => array(),
-		'job_types'         => array(),
+		'restaurant_types'         => array(),
 		'offset'            => 0,
 		'posts_per_page'    => 20,
 		'orderby'           => 'date',
@@ -83,11 +83,11 @@ function get_restaurant_listings( $args = array() ) {
 		);
 	}
 
-	if ( ! empty( $args['job_types'] ) ) {
+	if ( ! empty( $args['restaurant_types'] ) ) {
 		$query_args['tax_query'][] = array(
 			'taxonomy' => 'restaurant_listing_type',
 			'field'    => 'slug',
-			'terms'    => $args['job_types']
+			'terms'    => $args['restaurant_types']
 		);
 	}
 
@@ -325,7 +325,7 @@ function job_manager_get_filtered_links( $args = array() ) {
 		'rss_link' => array(
 			'name' => __( 'RSS', 'wp-restaurant-listings' ),
 			'url'  => get_restaurant_listing_rss_link( apply_filters( 'job_manager_get_listings_custom_filter_rss_args', array(
-				'job_types'       => isset( $args['filter_job_types'] ) ? implode( ',', $args['filter_job_types'] ) : '',
+				'restaurant_types'       => isset( $args['filter_restaurant_types'] ) ? implode( ',', $args['filter_restaurant_types'] ) : '',
 				'search_location' => $args['search_location'],
 				'job_categories'  => implode( ',', $job_categories ),
 				'search_keywords' => $args['search_keywords'],
@@ -333,7 +333,7 @@ function job_manager_get_filtered_links( $args = array() ) {
 		)
 	), $args );
 
-	if ( sizeof( $args['filter_job_types'] ) === sizeof( $types ) && ! $args['search_keywords'] && ! $args['search_location'] && ! $args['search_categories'] && ! apply_filters( 'job_manager_get_listings_custom_filter', false ) ) {
+	if ( sizeof( $args['filter_restaurant_types'] ) === sizeof( $types ) && ! $args['search_keywords'] && ! $args['search_location'] && ! $args['search_categories'] && ! apply_filters( 'job_manager_get_listings_custom_filter', false ) ) {
 		unset( $links['reset'] );
 	}
 

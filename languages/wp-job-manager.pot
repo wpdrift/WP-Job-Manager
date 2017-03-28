@@ -858,11 +858,11 @@ msgstr ""
 
 #: includes/class-wp-job-manager-post-types.php:118
 #: includes/forms/class-wp-job-manager-form-submit-job.php:171
-msgid "Job type"
+msgid "Restaurant type"
 msgstr ""
 
 #: includes/class-wp-job-manager-post-types.php:119
-msgid "Job types"
+msgid "Restaurant types"
 msgstr ""
 
 #: includes/class-wp-job-manager-post-types.php:168
@@ -1437,8 +1437,8 @@ msgid "job-category"
 msgstr ""
 
 #: includes/class-wp-job-manager-post-types.php:123
-msgctxt "Job type slug - resave permalinks after changing this"
-msgid "job-type"
+msgctxt "Restaurant type slug - resave permalinks after changing this"
+msgid "restaurant-type"
 msgstr ""
 
 #: includes/class-wp-job-manager-post-types.php:172

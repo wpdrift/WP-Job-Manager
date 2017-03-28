@@ -21,7 +21,7 @@ class WP_Restaurant_Listings_Shortcodes {
 	public function __construct() {
 		add_action( 'wp', array( $this, 'shortcode_action_handler' ) );
 		add_action( 'job_manager_job_dashboard_content_edit', array( $this, 'edit_job' ) );
-		add_action( 'job_manager_job_filters_end', array( $this, 'job_filter_job_types' ), 20 );
+		add_action( 'job_manager_job_filters_end', array( $this, 'job_filter_restaurant_types' ), 20 );
 		add_action( 'job_manager_job_filters_end', array( $this, 'job_filter_results' ), 30 );
 		add_action( 'job_manager_output_jobs_no_results', array( $this, 'output_no_results' ) );
 		add_shortcode( 'submit_job_form', array( $this, 'submit_job_form' ) );
@@ -227,7 +227,7 @@ class WP_Restaurant_Listings_Shortcodes {
 
 			// Limit what jobs are shown based on category and type
 			'categories'                => '',
-			'job_types'                 => '',
+			'restaurant_types'                 => '',
 			'featured'                  => null, // True to show only featured, false to hide featured, leave null to show both.
 			'filled'                    => null, // True to show only filled, false to hide filled, leave null to show both/use the settings.
 
@@ -235,7 +235,7 @@ class WP_Restaurant_Listings_Shortcodes {
 			'location'                  => '',
 			'keywords'                  => '',
 			'selected_category'         => '',
-			'selected_job_types'        => implode( ',', array_values( get_restaurant_listing_types( 'id=>slug' ) ) ),
+			'selected_restaurant_types'        => implode( ',', array_values( get_restaurant_listing_types( 'id=>slug' ) ) ),
 		) ), $atts ) );
 
 		if ( ! get_option( 'job_manager_enable_categories' ) ) {
@@ -259,8 +259,8 @@ class WP_Restaurant_Listings_Shortcodes {
 
 		// Array handling
 		$categories         = is_array( $categories ) ? $categories : array_filter( array_map( 'trim', explode( ',', $categories ) ) );
-		$job_types          = is_array( $job_types ) ? $job_types : array_filter( array_map( 'trim', explode( ',', $job_types ) ) );
-		$selected_job_types = is_array( $selected_job_types ) ? $selected_job_types : array_filter( array_map( 'trim', explode( ',', $selected_job_types ) ) );
+		$restaurant_types          = is_array( $restaurant_types ) ? $restaurant_types : array_filter( array_map( 'trim', explode( ',', $restaurant_types ) ) );
+		$selected_restaurant_types = is_array( $selected_restaurant_types ) ? $selected_restaurant_types : array_filter( array_map( 'trim', explode( ',', $selected_restaurant_types ) ) );
 
 		// Get keywords and location from querystring if set
 		if ( ! empty( $_GET['search_keywords'] ) ) {
@@ -275,7 +275,7 @@ class WP_Restaurant_Listings_Shortcodes {
 
 		if ( $show_filters ) {
 
-			get_job_manager_template( 'job-filters.php', array( 'per_page' => $per_page, 'orderby' => $orderby, 'order' => $order, 'show_categories' => $show_categories, 'categories' => $categories, 'selected_category' => $selected_category, 'job_types' => $job_types, 'atts' => $atts, 'location' => $location, 'keywords' => $keywords, 'selected_job_types' => $selected_job_types, 'show_category_multiselect' => $show_category_multiselect ) );
+			get_job_manager_template( 'job-filters.php', array( 'per_page' => $per_page, 'orderby' => $orderby, 'order' => $order, 'show_categories' => $show_categories, 'categories' => $categories, 'selected_category' => $selected_category, 'restaurant_types' => $restaurant_types, 'atts' => $atts, 'location' => $location, 'keywords' => $keywords, 'selected_restaurant_types' => $selected_restaurant_types, 'show_category_multiselect' => $show_category_multiselect ) );
 
 			get_job_manager_template( 'job-listings-start.php' );
 			get_job_manager_template( 'job-listings-end.php' );
@@ -290,7 +290,7 @@ class WP_Restaurant_Listings_Shortcodes {
 				'search_location'   => $location,
 				'search_keywords'   => $keywords,
 				'search_categories' => $categories,
-				'job_types'         => $job_types,
+				'restaurant_types'         => $restaurant_types,
 				'orderby'           => $orderby,
 				'order'             => $order,
 				'posts_per_page'    => $per_page,
@@ -373,13 +373,13 @@ class WP_Restaurant_Listings_Shortcodes {
 	 * Show job types
 	 * @param  array $atts
 	 */
-	public function job_filter_job_types( $atts ) {
+	public function job_filter_restaurant_types( $atts ) {
 		extract( $atts );
 
-		$job_types          = array_filter( array_map( 'trim', explode( ',', $job_types ) ) );
-		$selected_job_types = array_filter( array_map( 'trim', explode( ',', $selected_job_types ) ) );
+		$restaurant_types          = array_filter( array_map( 'trim', explode( ',', $restaurant_types ) ) );
+		$selected_restaurant_types = array_filter( array_map( 'trim', explode( ',', $selected_restaurant_types ) ) );
 
-		get_job_manager_template( 'job-filter-job-types.php', array( 'job_types' => $job_types, 'atts' => $atts, 'selected_job_types' => $selected_job_types ) );
+		get_job_manager_template( 'job-filter-restaurant-types.php', array( 'restaurant_types' => $restaurant_types, 'atts' => $atts, 'selected_restaurant_types' => $selected_restaurant_types ) );
 	}
 
 	/**

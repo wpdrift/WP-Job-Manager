@@ -668,7 +668,7 @@ function get_restaurant_listing_class( $class = '', $post_id = null ) {
 
 	$classes[] = 'restaurant_listing';
 	if ( $job_type = get_the_job_type() ) {
-		$classes[] = 'job-type-' . sanitize_title( $job_type->name );
+		$classes[] = 'restaurant-type-' . sanitize_title( $job_type->name );
 	}
 
 	if ( is_position_filled( $post ) ) {

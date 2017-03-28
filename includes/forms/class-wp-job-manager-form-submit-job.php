@@ -170,7 +170,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 					'priority'    => 2
 				),
 				'job_type' => array(
-					'label'       => __( 'Job type', 'wp-restaurant-listings' ),
+					'label'       => __( 'Restaurant type', 'wp-restaurant-listings' ),
 					'type'        => $job_type,
 					'required'    => true,
 					'placeholder' => '',
@@ -345,9 +345,9 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 	}
 
 	/**
-	 * job_types function.
+	 * restaurant_types function.
 	 */
-	private function job_types() {
+	private function restaurant_types() {
 		$options = array();
 		$terms   = get_restaurant_listing_types();
 		foreach ( $terms as $term ) {

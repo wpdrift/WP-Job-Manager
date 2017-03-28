@@ -177,7 +177,7 @@ jQuery( document ).ready( function ( $ ) {
 		} );
 	} );
 
-	$( '#search_keywords, #search_location, .job_types :input, #search_categories, .job-manager-filter' ).change( function() {
+	$( '#search_keywords, #search_location, .restaurant_types :input, #search_categories, .job-manager-filter' ).change( function() {
 		var target   = $( this ).closest( 'div.restaurant_listings' );
 		target.triggerHandler( 'update_results', [ 1, false ] );
 		job_manager_store_state( target, 1 );

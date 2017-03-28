@@ -84,7 +84,7 @@ class WP_Restaurant_Listings_Ajax {
 		$search_location   = sanitize_text_field( stripslashes( $_REQUEST['search_location'] ) );
 		$search_keywords   = sanitize_text_field( stripslashes( $_REQUEST['search_keywords'] ) );
 		$search_categories = isset( $_REQUEST['search_categories'] ) ? $_REQUEST['search_categories'] : '';
-		$filter_job_types  = isset( $_REQUEST['filter_job_type'] ) ? array_filter( array_map( 'sanitize_title', (array) $_REQUEST['filter_job_type'] ) ) : null;
+		$filter_restaurant_types  = isset( $_REQUEST['filter_job_type'] ) ? array_filter( array_map( 'sanitize_title', (array) $_REQUEST['filter_job_type'] ) ) : null;
 		$types             = get_restaurant_listing_types();
 		$post_type_label   = $wp_post_types['restaurant_listing']->labels->name;
 		$orderby           = sanitize_text_field( $_REQUEST['orderby'] );
@@ -99,7 +99,7 @@ class WP_Restaurant_Listings_Ajax {
 			'search_location'    => $search_location,
 			'search_keywords'    => $search_keywords,
 			'search_categories'  => $search_categories,
-			'job_types'          => is_null( $filter_job_types ) || sizeof( $types ) === sizeof( $filter_job_types ) ? '' : $filter_job_types + array( 0 ),
+			'restaurant_types'          => is_null( $filter_restaurant_types ) || sizeof( $types ) === sizeof( $filter_restaurant_types ) ? '' : $filter_restaurant_types + array( 0 ),
 			'orderby'            => $orderby,
 			'order'              => sanitize_text_field( $_REQUEST['order'] ),
 			'offset'             => ( absint( $_REQUEST['page'] ) - 1 ) * absint( $_REQUEST['per_page'] ),
@@ -143,7 +143,7 @@ class WP_Restaurant_Listings_Ajax {
 		$unmatched     = false;
 
 		foreach ( $types as $type ) {
-			if ( is_array( $filter_job_types ) && in_array( $type->slug, $filter_job_types ) ) {
+			if ( is_array( $filter_restaurant_types ) && in_array( $type->slug, $filter_restaurant_types ) ) {
 				$showing_types[] = $type->name;
 			} else {
 				$unmatched = true;
@@ -201,7 +201,7 @@ class WP_Restaurant_Listings_Ajax {
 
 		// Generate RSS link
 		$result['showing_links'] = job_manager_get_filtered_links( array(
-			'filter_job_types'  => $filter_job_types,
+			'filter_restaurant_types'  => $filter_restaurant_types,
 			'search_location'   => $search_location,
 			'search_categories' => $search_categories,
 			'search_keywords'   => $search_keywords

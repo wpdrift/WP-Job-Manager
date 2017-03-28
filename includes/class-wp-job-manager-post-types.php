@@ -117,12 +117,12 @@ class WP_Restaurant_Listings_Post_Types {
 		}
 
 		if ( get_option( 'job_manager_enable_types' ) ) {
-			$singular  = __( 'Job type', 'wp-restaurant-listings' );
-			$plural    = __( 'Job types', 'wp-restaurant-listings' );
+			$singular  = __( 'Restaurant type', 'wp-restaurant-listings' );
+			$plural    = __( 'Restaurant types', 'wp-restaurant-listings' );
 
 			if ( current_theme_supports( 'job-manager-templates' ) ) {
 				$rewrite   = array(
-					'slug'         => _x( 'job-type', 'Job type slug - resave permalinks after changing this', 'wp-restaurant-listings' ),
+					'slug'         => _x( 'restaurant-type', 'Restaurant type slug - resave permalinks after changing this', 'wp-restaurant-listings' ),
 					'with_front'   => false,
 					'hierarchical' => false
 				);
@@ -332,11 +332,11 @@ class WP_Restaurant_Listings_Post_Types {
 			$query_args['meta_query'][] = $location_search;
 		}
 
-		if ( ! empty( $_GET['job_types'] ) ) {
+		if ( ! empty( $_GET['restaurant_types'] ) ) {
 			$query_args['tax_query'][] = array(
 				'taxonomy' => 'restaurant_listing_type',
 				'field'    => 'slug',
-				'terms'    => explode( ',', sanitize_text_field( $_GET['job_types'] ) ) + array( 0 )
+				'terms'    => explode( ',', sanitize_text_field( $_GET['restaurant_types'] ) ) + array( 0 )
 			);
 		}
 

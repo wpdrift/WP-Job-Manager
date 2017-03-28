@@ -2,7 +2,7 @@
 
 <a href="<?php the_permalink(); ?>">
 	<?php if ( get_option( 'job_manager_enable_types' ) ) { ?>
-	<div class="job-type <?php echo get_the_job_type() ? sanitize_title( get_the_job_type()->slug ) : ''; ?>"><?php the_job_type(); ?></div>
+	<div class="restaurant-type <?php echo get_the_job_type() ? sanitize_title( get_the_job_type()->slug ) : ''; ?>"><?php the_job_type(); ?></div>
 	<?php } ?>
 
 	<?php if ( $logo = get_the_company_logo() ) : ?>

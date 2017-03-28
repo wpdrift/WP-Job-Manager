@@ -289,7 +289,7 @@ class WP_Restaurant_Listings_CPT {
 			case "restaurant_listing_type" :
 				$type = get_the_job_type( $post );
 				if ( $type )
-					echo '<span class="job-type ' . $type->slug . '">' . $type->name . '</span>';
+					echo '<span class="restaurant-type ' . $type->slug . '">' . $type->name . '</span>';
 			break;
 			case "job_position" :
 				echo '<div class="job_position">';

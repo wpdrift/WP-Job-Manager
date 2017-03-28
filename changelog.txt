@@ -359,7 +359,7 @@
 * Few extra icons in font.
 * Additonal hooks in single template.
 * Pick up search_category from querystring to set default/selected category.
-* Ability to define selected_job_types for the jobs shortcode which will set the default job type filters.
+* Ability to define selected_restaurant_types for the jobs shortcode which will set the default job type filters.
 * Took out show_featured_only arg for the [jobs] shortcode and added 'featured' which can be set to true or false to show or hide featured jobs, or left null to show both.
 * Removed nonce from frontend job submission form to prevent issues with caching.
 
@@ -466,7 +466,7 @@
 * When using the job submit form, generate a more unqiue slug for the job - company-location-type-job-title
 * Ability to remove image from job submission form
 * Update icon font
-* Fix job_types filters
+* Fix restaurant_types filters
 * Field_select in admin
 * Fix access control on job editing
 * Job forms multiselect support
@@ -479,7 +479,7 @@
 * Greek should be el_GR
 * Settings: Use key for tabs - fixes issues with locales
 * Show pending count in admin menu
-* Added job_types argument to jobs shortcode to show jobs of a certain type only
+* Added restaurant_types argument to jobs shortcode to show jobs of a certain type only
 * Hierarchical dropdown for categories on filter form
 * job_manager_job_submitted hook in submission form
 
