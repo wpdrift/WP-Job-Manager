@@ -1,24 +1,24 @@
-# WP Job Manager #
-**Contributors:** [mikejolley](https://profiles.wordpress.org/mikejolley), [automattic](https://profiles.wordpress.org/automattic), [adamkheckler](https://profiles.wordpress.org/adamkheckler), [annezazu](https://profiles.wordpress.org/annezazu), [artemitos](https://profiles.wordpress.org/artemitos), [bikedorkjon](https://profiles.wordpress.org/bikedorkjon), [cena](https://profiles.wordpress.org/cena), [chaselivingston](https://profiles.wordpress.org/chaselivingston), [csonnek](https://profiles.wordpress.org/csonnek), [davor.altman](https://profiles.wordpress.org/davor.altman), [drawmyface](https://profiles.wordpress.org/drawmyface), [erania-pinnera](https://profiles.wordpress.org/erania-pinnera), [jacobshere](https://profiles.wordpress.org/jacobshere), [jeherve](https://profiles.wordpress.org/jeherve), [jenhooks](https://profiles.wordpress.org/jenhooks), [jgs](https://profiles.wordpress.org/jgs), [kraftbj](https://profiles.wordpress.org/kraftbj), [lamdayap](https://profiles.wordpress.org/lamdayap), [lschuyler](https://profiles.wordpress.org/lschuyler), [macmanx](https://profiles.wordpress.org/macmanx), [nancythanki](https://profiles.wordpress.org/nancythanki), [orangesareorange](https://profiles.wordpress.org/orangesareorange), [rachelsquirrel](https://profiles.wordpress.org/rachelsquirrel), [ryancowles](https://profiles.wordpress.org/ryancowles), [richardmtl](https://profiles.wordpress.org/richardmtl), [scarstocea](https://profiles.wordpress.org/scarstocea)  
+# WP Restaurant Listings #
+**Contributors:** [kishores](https://profiles.wordpress.org/kishores), [wpdrift](https://profiles.wordpress.org/wpdrift)  
 **Tags:** job manager, job listing, job board, job management, job lists, job list, job, jobs, company, hiring, employment, employer, employees, candidate, freelance, internship, job listings, positions, board, application, hiring, listing, manager, recruiting, recruitment, talent  
 **Requires at least:** 4.1  
 **Tested up to:** 4.7  
-**Stable tag:** 1.25.3  
+**Stable tag:** 0.0.1  
 **License:** GPLv3  
 **License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
 
-Manage job listings from the WordPress admin panel, and allow users to post job listings directly to your site.
+Manage restaurant listings from the WordPress admin panel, and allow users to post restaurants directly to your site.
 
 ## Description ##
 
-WP Job Manager is a **lightweight** job listing plugin for adding job-board like functionality to your WordPress site. Being shortcode based, it can work with any theme (given a bit of CSS styling) and is really simple to setup.
+WP Restaurant Listings is a **lightweight** restaurant listing plugin for adding restaurant listing like functionality to your WordPress site. Being shortcode based, it can work with any theme (given a bit of CSS styling) and is really simple to setup.
 
 ### Features ###
 
-* Add, manage, and categorize job listings using the familiar WordPress UI.
-* Searchable & filterable ajax powered job listings added to your pages via shortcodes.
-* Frontend forms for guests and registered users to submit & manage job listings.
-* Allow job listers to preview their listing before it goes live. The preview matches the appearance of a live job listing.
+* Add, manage, and categorize restaurant listings using the familiar WordPress UI.
+* Searchable & filterable ajax powered restaurant listings added to your pages via shortcodes.
+* Frontend forms for guests and registered users to submit & manage restaurant listings.
+* Allow restaurant listers to preview their listing before it goes live. The preview matches the appearance of a live restaurant listing.
 * Each listing can be tied to an email or website address so that job seekers can apply to the jobs.
 * Searches also display RSS links to allow job seekers to be alerted to new jobs matching their search.
 * Allow logged in employers to view, edit, mark filled, or delete their active job listings.
