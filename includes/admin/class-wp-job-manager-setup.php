@@ -190,7 +190,7 @@ class WP_Restaurant_Listings_Setup {
 							</tr>
 							<tr>
 								<td><input type="checkbox" checked="checked" name="wp-job-manager-create-page[jobs]" /></td>
-								<td><input type="text" value="<?php echo esc_attr( _x( 'Jobs', 'Default page title (wizard)', 'wp-job-manager' ) ); ?>" name="wp-job-manager-page-title[jobs]" /></td>
+								<td><input type="text" value="<?php echo esc_attr( _x( 'Restaurants', 'Default page title (wizard)', 'wp-job-manager' ) ); ?>" name="wp-job-manager-page-title[jobs]" /></td>
 								<td><?php _e( 'This page allows users to browse, search, and filter job listings on the front-end of your site.', 'wp-job-manager' ); ?></td>
 								<td><code>[jobs]</code></td>
 							</tr>
@@ -214,8 +214,8 @@ class WP_Restaurant_Listings_Setup {
 				<p><?php _e( 'Looks like you\'re all set to start using the plugin. In case you\'re wondering where to go next:', 'wp-job-manager' ); ?></p>
 
 				<ul class="wp-job-manager-next-steps">
-					<li><a href="<?php echo admin_url( 'edit.php?post_type=job_listing&page=job-manager-settings' ); ?>"><?php _e( 'Tweak the plugin settings', 'wp-job-manager' ); ?></a></li>
-					<li><a href="<?php echo admin_url( 'post-new.php?post_type=job_listing' ); ?>"><?php _e( 'Add a job via the back-end', 'wp-job-manager' ); ?></a></li>
+					<li><a href="<?php echo admin_url( 'edit.php?post_type=restaurant_listing&page=job-manager-settings' ); ?>"><?php _e( 'Tweak the plugin settings', 'wp-job-manager' ); ?></a></li>
+					<li><a href="<?php echo admin_url( 'post-new.php?post_type=restaurant_listing' ); ?>"><?php _e( 'Add a job via the back-end', 'wp-job-manager' ); ?></a></li>
 
 					<?php if ( $permalink = job_manager_get_permalink( 'submit_job_form' ) ) : ?>
 						<li><a href="<?php echo esc_url( $permalink ); ?>"><?php _e( 'Add a job via the front-end', 'wp-job-manager' ); ?></a></li>

@@ -85,8 +85,8 @@ class WP_Restaurant_Listings_Ajax {
 		$search_keywords   = sanitize_text_field( stripslashes( $_REQUEST['search_keywords'] ) );
 		$search_categories = isset( $_REQUEST['search_categories'] ) ? $_REQUEST['search_categories'] : '';
 		$filter_job_types  = isset( $_REQUEST['filter_job_type'] ) ? array_filter( array_map( 'sanitize_title', (array) $_REQUEST['filter_job_type'] ) ) : null;
-		$types             = get_job_listing_types();
-		$post_type_label   = $wp_post_types['job_listing']->labels->name;
+		$types             = get_restaurant_listing_types();
+		$post_type_label   = $wp_post_types['restaurant_listing']->labels->name;
 		$orderby           = sanitize_text_field( $_REQUEST['orderby'] );
 
 		if ( is_array( $search_categories ) ) {
@@ -117,7 +117,7 @@ class WP_Restaurant_Listings_Ajax {
 
 		ob_start();
 
-		$jobs = get_job_listings( apply_filters( 'job_manager_get_listings_args', $args ) );
+		$jobs = get_restaurant_listings( apply_filters( 'job_manager_get_listings_args', $args ) );
 
 		$result['found_jobs'] = false;
 
@@ -125,7 +125,7 @@ class WP_Restaurant_Listings_Ajax {
 
 			<?php while ( $jobs->have_posts() ) : $jobs->the_post(); ?>
 
-				<?php get_job_manager_template_part( 'content', 'job_listing' ); ?>
+				<?php get_job_manager_template_part( 'content', 'restaurant_listing' ); ?>
 
 			<?php endwhile; ?>
 
@@ -161,7 +161,7 @@ class WP_Restaurant_Listings_Ajax {
 			$showing_categories = array();
 
 			foreach ( $search_categories as $category ) {
-				$category_object = get_term_by( is_numeric( $category ) ? 'id' : 'slug', $category, 'job_listing_category' );
+				$category_object = get_term_by( is_numeric( $category ) ? 'id' : 'slug', $category, 'restaurant_listing_category' );
 
 				if ( ! is_wp_error( $category_object ) ) {
 					$showing_categories[] = $category_object->name;
@@ -209,7 +209,7 @@ class WP_Restaurant_Listings_Ajax {
 
 		// Generate pagination
 		if ( isset( $_REQUEST['show_pagination'] ) && $_REQUEST['show_pagination'] === 'true' ) {
-			$result['pagination'] = get_job_listing_pagination( $jobs->max_num_pages, absint( $_REQUEST['page'] ) );
+			$result['pagination'] = get_restaurant_listing_pagination( $jobs->max_num_pages, absint( $_REQUEST['page'] ) );
 		}
 
 		$result['max_num_pages'] = $jobs->max_num_pages;

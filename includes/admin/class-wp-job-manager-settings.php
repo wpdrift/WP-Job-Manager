@@ -38,7 +38,7 @@ class WP_Restaurant_Listings_Settings {
 
 		$this->settings = apply_filters( 'job_manager_settings',
 			array(
-				'job_listings' => array(
+				'restaurant_listings' => array(
 					__( 'Job Listings', 'wp-job-manager' ),
 					array(
 						array(
@@ -92,8 +92,8 @@ class WP_Restaurant_Listings_Settings {
 							'desc'       => __( 'Determines the logic used to display jobs when selecting multiple categories.', 'wp-job-manager' ),
 							'type'       => 'select',
 							'options' => array(
-								'any'  => __( 'Jobs will be shown if within ANY selected category', 'wp-job-manager' ),
-								'all' => __( 'Jobs will be shown if within ALL selected categories', 'wp-job-manager' ),
+								'any'  => __( 'Restaurants will be shown if within ANY selected category', 'wp-job-manager' ),
+								'all' => __( 'Restaurants will be shown if within ALL selected categories', 'wp-job-manager' ),
 							)
 						),
 						array(

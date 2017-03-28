@@ -176,7 +176,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 					'placeholder' => '',
 					'priority'    => 3,
 					'default'     => 'full-time',
-					'taxonomy'    => 'job_listing_type'
+					'taxonomy'    => 'restaurant_listing_type'
 				),
 				'job_category' => array(
 					'label'       => __( 'Job category', 'wp-job-manager' ),
@@ -185,7 +185,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 					'placeholder' => '',
 					'priority'    => 4,
 					'default'     => '',
-					'taxonomy'    => 'job_listing_category'
+					'taxonomy'    => 'restaurant_listing_category'
 				),
 				'job_description' => array(
 					'label'       => __( 'Description', 'wp-job-manager' ),
@@ -257,10 +257,10 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 			)
 		) );
 
-		if ( ! get_option( 'job_manager_enable_categories' ) || wp_count_terms( 'job_listing_category' ) == 0 ) {
+		if ( ! get_option( 'job_manager_enable_categories' ) || wp_count_terms( 'restaurant_listing_category' ) == 0 ) {
 			unset( $this->fields['job']['job_category'] );
 		}
-		if ( ! get_option( 'job_manager_enable_types' ) || wp_count_terms( 'job_listing_type' ) == 0 ) {
+		if ( ! get_option( 'job_manager_enable_types' ) || wp_count_terms( 'restaurant_listing_type' ) == 0 ) {
 			unset( $this->fields['job']['job_type'] );
 		}
 	}
@@ -349,7 +349,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 	 */
 	private function job_types() {
 		$options = array();
-		$terms   = get_job_listing_types();
+		$terms   = get_restaurant_listing_types();
 		foreach ( $terms as $term ) {
 			$options[ $term->slug ] = $term->name;
 		}
@@ -375,10 +375,10 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 							$this->fields[ $group_key ][ $key ]['value'] = $job->post_content;
 						break;
 						case 'job_type' :
-							$this->fields[ $group_key ][ $key ]['value'] = current( wp_get_object_terms( $job->ID, 'job_listing_type', array( 'fields' => 'ids' ) ) );
+							$this->fields[ $group_key ][ $key ]['value'] = current( wp_get_object_terms( $job->ID, 'restaurant_listing_type', array( 'fields' => 'ids' ) ) );
 						break;
 						case 'job_category' :
-							$this->fields[ $group_key ][ $key ]['value'] = wp_get_object_terms( $job->ID, 'job_listing_category', array( 'fields' => 'ids' ) );
+							$this->fields[ $group_key ][ $key ]['value'] = wp_get_object_terms( $job->ID, 'restaurant_listing_category', array( 'fields' => 'ids' ) );
 						break;
 						case 'company_logo' :
 							$this->fields[ $group_key ][ $key ]['value'] = has_post_thumbnail( $job->ID ) ? get_post_thumbnail_id( $job->ID ) : get_post_meta( $job->ID, '_' . $key, true );
@@ -500,7 +500,7 @@ class WP_Restaurant_Listings_Form_Submit_Job extends WP_Restaurant_Listings_Form
 		$job_data = array(
 			'post_title'     => $post_title,
 			'post_content'   => $post_content,
-			'post_type'      => 'job_listing',
+			'post_type'      => 'restaurant_listing',
 			'comment_status' => 'closed'
 		);
 

@@ -104,7 +104,7 @@ add_filter( 'body_class', 'job_manager_body_class' );
  * Get jobs pagination for [jobs] shortcode
  * @return [type] [description]
  */
-function get_job_listing_pagination( $max_num_pages, $current_page = 1 ) {
+function get_restaurant_listing_pagination( $max_num_pages, $current_page = 1 ) {
 	ob_start();
 	get_job_manager_template( 'job-pagination.php', array( 'max_num_pages' => $max_num_pages, 'current_page' => absint( $current_page ) ) );
 	return ob_get_clean();
@@ -127,7 +127,7 @@ function the_job_status( $post = null ) {
 function get_the_job_status( $post = null ) {
 	$post     = get_post( $post );
 	$status   = $post->post_status;
-	$statuses = get_job_listing_post_statuses();
+	$statuses = get_restaurant_listing_post_statuses();
 
 	if ( isset( $statuses[ $status ] ) ) {
 		$status = $statuses[ $status ];
@@ -205,7 +205,7 @@ function get_the_job_permalink( $post = null ) {
 function get_the_job_application_method( $post = null ) {
 	$post = get_post( $post );
 
-	if ( $post && $post->post_type !== 'job_listing' ) {
+	if ( $post && $post->post_type !== 'restaurant_listing' ) {
 		return;
 	}
 
@@ -253,11 +253,11 @@ function the_job_type( $post = null ) {
  */
 function get_the_job_type( $post = null ) {
 	$post = get_post( $post );
-	if ( $post->post_type !== 'job_listing' ) {
+	if ( $post->post_type !== 'restaurant_listing' ) {
 		return;
 	}
 
-	$types = wp_get_post_terms( $post->ID, 'job_listing_type' );
+	$types = wp_get_post_terms( $post->ID, 'restaurant_listing_type' );
 
 	if ( $types ) {
 		$type = current( $types );
@@ -332,7 +332,7 @@ function the_job_location( $map_link = true, $post = null ) {
  */
 function get_the_job_location( $post = null ) {
 	$post = get_post( $post );
-	if ( $post->post_type !== 'job_listing' ) {
+	if ( $post->post_type !== 'restaurant_listing' ) {
 		return;
 	}
 
@@ -481,7 +481,7 @@ function the_company_video( $post = null ) {
  */
 function get_the_company_video( $post = null ) {
 	$post = get_post( $post );
-	if ( $post->post_type !== 'job_listing' ) {
+	if ( $post->post_type !== 'restaurant_listing' ) {
 		return;
 	}
 	return apply_filters( 'the_company_video', $post->_company_video, $post );
@@ -518,7 +518,7 @@ function the_company_name( $before = '', $after = '', $echo = true, $post = null
  */
 function get_the_company_name( $post = null ) {
 	$post = get_post( $post );
-	if ( $post->post_type !== 'job_listing' ) {
+	if ( $post->post_type !== 'restaurant_listing' ) {
 		return '';
 	}
 
@@ -535,7 +535,7 @@ function get_the_company_name( $post = null ) {
 function get_the_company_website( $post = null ) {
 	$post = get_post( $post );
 
-	if ( $post->post_type !== 'job_listing' )
+	if ( $post->post_type !== 'restaurant_listing' )
 		return;
 
 	$website = $post->_company_website;
@@ -579,7 +579,7 @@ function the_company_tagline( $before = '', $after = '', $echo = true, $post = n
 function get_the_company_tagline( $post = null ) {
 	$post = get_post( $post );
 
-	if ( $post->post_type !== 'job_listing' )
+	if ( $post->post_type !== 'restaurant_listing' )
 		return;
 
 	return apply_filters( 'the_company_tagline', $post->_company_tagline, $post );
@@ -616,7 +616,7 @@ function the_company_twitter( $before = '', $after = '', $echo = true, $post = n
  */
 function get_the_company_twitter( $post = null ) {
 	$post = get_post( $post );
-	if ( $post->post_type !== 'job_listing' )
+	if ( $post->post_type !== 'restaurant_listing' )
 		return;
 
 	$company_twitter = $post->_company_twitter;
@@ -631,32 +631,32 @@ function get_the_company_twitter( $post = null ) {
 }
 
 /**
- * job_listing_class function.
+ * restaurant_listing_class function.
  *
  * @access public
  * @param string $class (default: '')
  * @param mixed $post_id (default: null)
  * @return void
  */
-function job_listing_class( $class = '', $post_id = null ) {
+function restaurant_listing_class( $class = '', $post_id = null ) {
 	// Separates classes with a single space, collates classes for post DIV
-	echo 'class="' . join( ' ', get_job_listing_class( $class, $post_id ) ) . '"';
+	echo 'class="' . join( ' ', get_restaurant_listing_class( $class, $post_id ) ) . '"';
 }
 
 /**
- * get_job_listing_class function.
+ * get_restaurant_listing_class function.
  *
  * @access public
  * @return array
  */
-function get_job_listing_class( $class = '', $post_id = null ) {
+function get_restaurant_listing_class( $class = '', $post_id = null ) {
 	if ( ! get_option( 'job_manager_enable_types' ) ) {
 		return get_post_class( array( 'job_classes' ), $post_id );
 	}
 
 	$post = get_post( $post_id );
 
-	if ( $post->post_type !== 'job_listing' ) {
+	if ( $post->post_type !== 'restaurant_listing' ) {
 		return array();
 	}
 
@@ -666,7 +666,7 @@ function get_job_listing_class( $class = '', $post_id = null ) {
 		return $classes;
 	}
 
-	$classes[] = 'job_listing';
+	$classes[] = 'restaurant_listing';
 	if ( $job_type = get_the_job_type() ) {
 		$classes[] = 'job-type-' . sanitize_title( $job_type->name );
 	}
@@ -692,15 +692,15 @@ function get_job_listing_class( $class = '', $post_id = null ) {
 /**
  * Displays job meta data on the single job page
  */
-function job_listing_meta_display() {
-	get_job_manager_template( 'content-single-job_listing-meta.php', array() );
+function restaurant_listing_meta_display() {
+	get_job_manager_template( 'content-single-restaurant_listing-meta.php', array() );
 }
-add_action( 'single_job_listing_start', 'job_listing_meta_display', 20 );
+add_action( 'single_restaurant_listing_start', 'restaurant_listing_meta_display', 20 );
 
 /**
  * Displays job company data on the single job page
  */
-function job_listing_company_display() {
-	get_job_manager_template( 'content-single-job_listing-company.php', array() );
+function restaurant_listing_company_display() {
+	get_job_manager_template( 'content-single-restaurant_listing-company.php', array() );
 }
-add_action( 'single_job_listing_start', 'job_listing_company_display', 30 );
+add_action( 'single_restaurant_listing_start', 'restaurant_listing_company_display', 30 );

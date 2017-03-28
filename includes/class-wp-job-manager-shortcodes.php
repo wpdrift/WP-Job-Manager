@@ -168,7 +168,7 @@ class WP_Restaurant_Listings_Shortcodes {
 
 		// ....If not show the job dashboard
 		$args     = apply_filters( 'job_manager_get_dashboard_jobs_args', array(
-			'post_type'           => 'job_listing',
+			'post_type'           => 'restaurant_listing',
 			'post_status'         => array( 'publish', 'expired', 'pending' ),
 			'ignore_sticky_posts' => 1,
 			'posts_per_page'      => $posts_per_page,
@@ -235,7 +235,7 @@ class WP_Restaurant_Listings_Shortcodes {
 			'location'                  => '',
 			'keywords'                  => '',
 			'selected_category'         => '',
-			'selected_job_types'        => implode( ',', array_values( get_job_listing_types( 'id=>slug' ) ) ),
+			'selected_job_types'        => implode( ',', array_values( get_restaurant_listing_types( 'id=>slug' ) ) ),
 		) ), $atts ) );
 
 		if ( ! get_option( 'job_manager_enable_categories' ) ) {
@@ -286,7 +286,7 @@ class WP_Restaurant_Listings_Shortcodes {
 
 		} else {
 
-			$jobs = get_job_listings( apply_filters( 'job_manager_output_jobs_args', array(
+			$jobs = get_restaurant_listings( apply_filters( 'job_manager_output_jobs_args', array(
 				'search_location'   => $location,
 				'search_keywords'   => $keywords,
 				'search_categories' => $categories,
@@ -303,7 +303,7 @@ class WP_Restaurant_Listings_Shortcodes {
 				<?php get_job_manager_template( 'job-listings-start.php' ); ?>
 
 				<?php while ( $jobs->have_posts() ) : $jobs->the_post(); ?>
-					<?php get_job_manager_template_part( 'content', 'job_listing' ); ?>
+					<?php get_job_manager_template_part( 'content', 'restaurant_listing' ); ?>
 				<?php endwhile; ?>
 
 				<?php get_job_manager_template( 'job-listings-end.php' ); ?>
@@ -313,7 +313,7 @@ class WP_Restaurant_Listings_Shortcodes {
 					<?php wp_enqueue_script( 'wp-job-manager-ajax-filters' ); ?>
 
 					<?php if ( $show_pagination ) : ?>
-						<?php echo get_job_listing_pagination( $jobs->max_num_pages ); ?>
+						<?php echo get_restaurant_listing_pagination( $jobs->max_num_pages ); ?>
 					<?php else : ?>
 						<a class="load_more_jobs" href="#"><strong><?php _e( 'Load more listings', 'wp-job-manager' ); ?></strong></a>
 					<?php endif; ?>
@@ -348,9 +348,9 @@ class WP_Restaurant_Listings_Shortcodes {
 			$data_attributes_string .= 'data-' . esc_attr( $key ) . '="' . esc_attr( $value ) . '" ';
 		}
 
-		$job_listings_output = apply_filters( 'job_manager_job_listings_output', ob_get_clean() );
+		$restaurant_listings_output = apply_filters( 'job_manager_restaurant_listings_output', ob_get_clean() );
 
-		return '<div class="job_listings" ' . $data_attributes_string . '>' . $job_listings_output . '</div>';
+		return '<div class="restaurant_listings" ' . $data_attributes_string . '>' . $restaurant_listings_output . '</div>';
 	}
 
 	/**
@@ -407,7 +407,7 @@ class WP_Restaurant_Listings_Shortcodes {
 		ob_start();
 
 		$args = array(
-			'post_type'   => 'job_listing',
+			'post_type'   => 'restaurant_listing',
 			'post_status' => 'publish',
 			'p'           => $id
 		);
@@ -420,7 +420,7 @@ class WP_Restaurant_Listings_Shortcodes {
 
 				<h1><?php the_title(); ?></h1>
 
-				<?php get_job_manager_template_part( 'content-single', 'job_listing' ); ?>
+				<?php get_job_manager_template_part( 'content-single', 'restaurant_listing' ); ?>
 
 			<?php endwhile; ?>
 
@@ -428,7 +428,7 @@ class WP_Restaurant_Listings_Shortcodes {
 
 		wp_reset_postdata();
 
-		return '<div class="job_shortcode single_job_listing">' . ob_get_clean() . '</div>';
+		return '<div class="job_shortcode single_restaurant_listing">' . ob_get_clean() . '</div>';
 	}
 
 	/**
@@ -450,7 +450,7 @@ class WP_Restaurant_Listings_Shortcodes {
 		ob_start();
 
 		$args = array(
-			'post_type'   => 'job_listing',
+			'post_type'   => 'restaurant_listing',
 			'post_status' => 'publish'
 		);
 
@@ -476,7 +476,7 @@ class WP_Restaurant_Listings_Shortcodes {
 
 				<div class="job_summary_shortcode align<?php echo $align ?>" style="width: <?php echo $width ? $width : auto; ?>">
 
-					<?php get_job_manager_template_part( 'content-summary', 'job_listing' ); ?>
+					<?php get_job_manager_template_part( 'content-summary', 'restaurant_listing' ); ?>
 
 				</div>
 
@@ -500,7 +500,7 @@ class WP_Restaurant_Listings_Shortcodes {
 		ob_start();
 
 		$args = array(
-			'post_type'   => 'job_listing',
+			'post_type'   => 'restaurant_listing',
 			'post_status' => 'publish'
 		);
 

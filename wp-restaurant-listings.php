@@ -172,7 +172,7 @@ class WP_Restaurant_Listings {
 }
 
 function job_manager_add_post_types( $types ) {
-	$types[] = 'job_listing';
+	$types[] = 'restaurant_listing';
 	return $types;
 }
 add_filter( 'post_types_to_delete_with_user', 'job_manager_add_post_types', 10 );

@@ -2,16 +2,16 @@
 /**
  * Single view Job meta box
  *
- * Hooked into single_job_listing_start priority 20
+ * Hooked into single_restaurant_listing_start priority 20
  *
  * @since  1.14.0
  */
 global $post;
 
-do_action( 'single_job_listing_meta_before' ); ?>
+do_action( 'single_restaurant_listing_meta_before' ); ?>
 
 <ul class="job-listing-meta meta">
-	<?php do_action( 'single_job_listing_meta_start' ); ?>
+	<?php do_action( 'single_restaurant_listing_meta_start' ); ?>
 
 	<?php if ( get_option( 'job_manager_enable_types' ) ) { ?>
 	<li class="job-type <?php echo get_the_job_type() ? sanitize_title( get_the_job_type()->slug ) : ''; ?>" itemprop="employmentType"><?php the_job_type(); ?></li>
@@ -27,7 +27,7 @@ do_action( 'single_job_listing_meta_before' ); ?>
 		<li class="listing-expired"><?php _e( 'Applications have closed', 'wp-job-manager' ); ?></li>
 	<?php endif; ?>
 
-	<?php do_action( 'single_job_listing_meta_end' ); ?>
+	<?php do_action( 'single_restaurant_listing_meta_end' ); ?>
 </ul>
 
-<?php do_action( 'single_job_listing_meta_after' ); ?>
+<?php do_action( 'single_restaurant_listing_meta_after' ); ?>

@@ -143,7 +143,7 @@ You can view (and contribute) translations via the [translate.wordpress.org](htt
 
 = 1.25.3 =
 * Enhancement: Allow job types to be optional, just like categories. https://github.com/automattic/wp-job-manager/pull/789 Props Donncha.
-* Enhancement: Add get_job_listing_types filter. https://github.com/automattic/wp-job-manager/pull/824 Props Adam Heckler.
+* Enhancement: Add get_restaurant_listing_types filter. https://github.com/automattic/wp-job-manager/pull/824 Props Adam Heckler.
 * Enhancement: Various date format setting improvements. See https://github.com/automattic/wp-job-manager/pull/757 Props Christian Nolen.
 * Enhancement: Pass search values with the job_manager_get_listings_custom_filter_text filter. https://github.com/automattic/wp-job-manager/pull/845 Props Kraft.
 * Fix: Prevent a potential CSRF vector. https://github.com/automattic/wp-job-manager/pull/891 Props Jay Patel for the responsible disclosure.

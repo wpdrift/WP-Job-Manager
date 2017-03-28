@@ -26,8 +26,8 @@ class WP_Restaurant_Listings_Install {
 
 		// Update featured posts ordering
 		if ( version_compare( get_option( 'wp_job_manager_version', JOB_MANAGER_VERSION ), '1.22.0', '<' ) ) {
-			$wpdb->query( "UPDATE {$wpdb->posts} p SET p.menu_order = 0 WHERE p.post_type='job_listing';" );
-			$wpdb->query( "UPDATE {$wpdb->posts} p LEFT JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id SET p.menu_order = -1 WHERE pm.meta_key = '_featured' AND pm.meta_value='1' AND p.post_type='job_listing';" );
+			$wpdb->query( "UPDATE {$wpdb->posts} p SET p.menu_order = 0 WHERE p.post_type='restaurant_listing';" );
+			$wpdb->query( "UPDATE {$wpdb->posts} p LEFT JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id SET p.menu_order = -1 WHERE pm.meta_key = '_featured' AND pm.meta_value='1' AND p.post_type='restaurant_listing';" );
 		}
 
 		// Update legacy options
@@ -78,26 +78,26 @@ class WP_Restaurant_Listings_Install {
 	private static function get_core_capabilities() {
 		return array(
 			'core' => array(
-				'manage_job_listings'
+				'manage_restaurant_listings'
 			),
-			'job_listing' => array(
-				"edit_job_listing",
-				"read_job_listing",
-				"delete_job_listing",
-				"edit_job_listings",
-				"edit_others_job_listings",
-				"publish_job_listings",
-				"read_private_job_listings",
-				"delete_job_listings",
-				"delete_private_job_listings",
-				"delete_published_job_listings",
-				"delete_others_job_listings",
-				"edit_private_job_listings",
-				"edit_published_job_listings",
-				"manage_job_listing_terms",
-				"edit_job_listing_terms",
-				"delete_job_listing_terms",
-				"assign_job_listing_terms"
+			'restaurant_listing' => array(
+				"edit_restaurant_listing",
+				"read_restaurant_listing",
+				"delete_restaurant_listing",
+				"edit_restaurant_listings",
+				"edit_others_restaurant_listings",
+				"publish_restaurant_listings",
+				"read_private_restaurant_listings",
+				"delete_restaurant_listings",
+				"delete_private_restaurant_listings",
+				"delete_published_restaurant_listings",
+				"delete_others_restaurant_listings",
+				"edit_private_restaurant_listings",
+				"edit_published_restaurant_listings",
+				"manage_restaurant_listing_terms",
+				"edit_restaurant_listing_terms",
+				"delete_restaurant_listing_terms",
+				"assign_restaurant_listing_terms"
 			)
 		);
 	}
@@ -111,7 +111,7 @@ class WP_Restaurant_Listings_Install {
 		}
 
 		$taxonomies = array(
-			'job_listing_type' => array(
+			'restaurant_listing_type' => array(
 				'Full Time',
 				'Part Time',
 				'Temporary',

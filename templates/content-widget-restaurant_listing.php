@@ -1,4 +1,4 @@
-<li <?php job_listing_class(); ?>>
+<li <?php restaurant_listing_class(); ?>>
 	<a href="<?php the_job_permalink(); ?>">
 		<div class="position">
 			<h3><?php the_title(); ?></h3>

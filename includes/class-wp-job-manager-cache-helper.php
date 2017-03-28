@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WP_Restaurant_Listings_Cache_Helper {
 
 	public static function init() {
-		add_action( 'save_post', array( __CLASS__, 'flush_get_job_listings_cache' ) );
+		add_action( 'save_post', array( __CLASS__, 'flush_get_restaurant_listings_cache' ) );
 		add_action( 'job_manager_my_job_do_action', array( __CLASS__, 'job_manager_my_job_do_action' ) );
 		add_action( 'set_object_terms', array( __CLASS__, 'set_term' ), 10, 4 );
 		add_action( 'edited_term', array( __CLASS__, 'edited_term' ), 10, 3 );
@@ -22,9 +22,9 @@ class WP_Restaurant_Listings_Cache_Helper {
 	/**
 	 * Flush the cache
 	 */
-	public static function flush_get_job_listings_cache( $post_id ) {
-		if ( 'job_listing' === get_post_type( $post_id ) ) {
-			self::get_transient_version( 'get_job_listings', true );
+	public static function flush_get_restaurant_listings_cache( $post_id ) {
+		if ( 'restaurant_listing' === get_post_type( $post_id ) ) {
+			self::get_transient_version( 'get_restaurant_listings', true );
 		}
 	}
 
@@ -33,7 +33,7 @@ class WP_Restaurant_Listings_Cache_Helper {
 	 */
 	public static function job_manager_my_job_do_action( $action ) {
 		if ( 'mark_filled' === $action || 'mark_not_filled' === $action ) {
-			self::get_transient_version( 'get_job_listings', true );
+			self::get_transient_version( 'get_restaurant_listings', true );
 		}
 	}
 

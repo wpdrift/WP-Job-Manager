@@ -2,7 +2,7 @@
 /**
  * Single view Company information box
  *
- * Hooked into single_job_listing_start priority 30
+ * Hooked into single_restaurant_listing_start priority 30
  *
  * @since  1.14.0
  */
